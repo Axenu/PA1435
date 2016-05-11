@@ -1,0 +1,40 @@
+﻿*{
+}
+
+html {
+  font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
+  color: #000;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+body {
+}
+
+
+#header{
+  background: url('bakgrund_scroll/test_header3.png') ;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 0px;
+  top: 620px;
+  position: relative;
+  z-index:9;
+}
+
+
+#footer {
+  background: url('bakgrund_scroll/footer.png') ;
+  height: 100px;
+
+  position: relative;
+  top: 619px;
+  left: -6px;
+  z-index: 10;
+}
+
+
+p {
+ font-family: arial,verdana, helvetica, sans-serif;
+ font-size: 11px; line-height:150%; letter-spacing: 1px; color: #000000; text-align:justify; margin:15px; font-size:16px; font-family:verdana;
+}

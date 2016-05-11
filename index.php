@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+  <link rel="stylesheet" href="css.css" type="text/css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Index</title>
 </head>
 <body>
+  <div id="header">
+  </div>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph my first commit.second commit</p>
+  <div id="contain">
+  </div>
 
-
+  <div id="footer">
+  </div>
 </body>
 </html>
