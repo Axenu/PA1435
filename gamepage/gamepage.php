@@ -10,7 +10,7 @@
     <div id="LoginField">
       Login
     </div>
-    <q>Game House</q>
+    <center><h1>Game House</h1></center>
   </div>
 
   <div id="contain">

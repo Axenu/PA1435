@@ -5,7 +5,7 @@ html {
   font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
   color: #000;
   background-repeat: no-repeat;
-  background-color: orange;
+  background-color: #489;
 }
 
 body {
@@ -13,11 +13,12 @@ body {
 
 #header{
   height: 200px;
+  width: 720px;
   margin: auto;
-  margin-bottom: 0px;
-  top: 620px;
+  margin-bottom: 10px;
+  background-color: black;
   position: relative;
-  z-index:10;
+  z-index:9;
 }
 
 #footer {
@@ -33,14 +34,17 @@ p {
  font-size: 11px; line-height:150%; letter-spacing: 1px; color: #000000; text-align:justify; margin:15px; font-size:16px; font-family:verdana;
 }
 
-q{
-
+h1{
+  font-family: verdana;
+  font-size: 300%;
+  color: white;
+  padding-top: 55px;
 }
 
 #LoginField{
   width: 150px;
   height: 20px;
-  top: 50px;
+  top: 0px;
   right: 50px;
   position: absolute;
   background-color: black;
