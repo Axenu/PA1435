@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="css.css" type="text/css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Index</title>
   <title>Game house start</title>
 </head>
 <body>
+  <div id="header">
+  </div>
 
   <a href="loginView.php">Login</a>
+  <div id="contain">
+  </div>
   <h1>Game House</h1>
   <p>Info text</p>
   <a href="bookView.php">book</a>
@@ -28,5 +35,7 @@
     }
   ?>
 
+  <div id="footer">
+  </div>
 </body>
 </html>
