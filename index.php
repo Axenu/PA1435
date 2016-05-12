@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <a href="login.php">Login</a>
+  <a href="loginView.php">Login</a>
   <h1>Game House</h1>
   <p>Info text</p>
   <a href="bookView.php">book</a>
