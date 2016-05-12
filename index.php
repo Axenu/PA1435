@@ -2,6 +2,9 @@
 <html>
 <head>
   <link rel="stylesheet" href="css/Style.css" type="text/css"/>
+  <script src="js/jquery.js"></script>
+  <?php include_once 'searchView.php';
+  getSeachInclude(); ?>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Index</title>
   <title>Game house start</title>
@@ -13,6 +16,7 @@
   <a href="loginView.php">Login</a>
   <div id="contain">
   </div>
+  <?php getSearchView(); ?>
   <h1>Game House</h1>
   <p>Info text</p>
   <a href="bookingView.php">book</a>
