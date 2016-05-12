@@ -17,6 +17,11 @@
   </div>
 
   <div id="footer">
+    Blekinge Institute of Technology, 2016<br>
+    PA1435<br>
+    Alfons Dahl <br>
+    Simon Nilsson<br>
+    Filip Pentikäinen<br>
   </div>
 </body>
 </html>
