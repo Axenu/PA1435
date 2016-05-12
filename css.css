@@ -42,11 +42,11 @@ h1{
 }
 
 #LoginField{
-  width: 150px;
+  width: 90px;
   height: 20px;
   top: 0px;
-  right: 50px;
+  right: 0px;
   position: absolute;
-  background-color: black;
+  background-color: grey;
   color: white;
 }

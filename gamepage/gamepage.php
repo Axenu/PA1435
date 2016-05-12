@@ -8,7 +8,7 @@
 <body>
   <div id="header">
     <div id="LoginField">
-      Login
+      <center>Login</center>
     </div>
     <center><h1>Game House</h1></center>
   </div>
