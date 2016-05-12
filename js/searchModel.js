@@ -9,5 +9,7 @@ function searchStringChnged() {
                 $('.searchResulContainer').html(output);
             }
         });
+    } else {
+        $('.searchResulContainer').html("");
     }
 }
