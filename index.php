@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css.css" type="text/css"/>
+  <link rel="stylesheet" href="css/Style.css" type="text/css"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Index</title>
   <title>Game house start</title>
@@ -15,7 +15,7 @@
   </div>
   <h1>Game House</h1>
   <p>Info text</p>
-  <a href="bookView.php">book</a>
+  <a href="bookingView.php">book</a>
 
   <?php
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
