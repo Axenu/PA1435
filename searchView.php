@@ -22,8 +22,11 @@ if (isset($_GET['query'])) {
     echo "<title>Game house start</title>";
     echo"</head>";
     echo"<body>";
-    echo"<div id='header'>";
-    echo "</div>";
+    echo"<div id="header">";
+    echo"    <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>";
+    echo"    <h2><center>Game House</center></h2>";
+    echo"    <div id="SearchField"><center><?php getSearchView(); ?></center></div>";
+    echo"</div>";
 
     echo"<a href='loginView.php'>Login</a>";
     echo"<div id='contain'>";
@@ -48,6 +51,11 @@ if (isset($_GET['query'])) {
     }
 
     echo"<div id='footer'>";
+    echo"Blekinge Institute of Technology, 2016<br>";
+    echo"PA1435, Objektorientad Programmering<br>";
+    echo"Alfons Dahl <br>";
+    echo"Simon Nilsson<br>";
+    echo"Filip Pentikäinen<br>";
     echo"</div>";
   echo"</body>";
   echo"</html>";
@@ -65,8 +73,11 @@ if (isset($_GET['query'])) {
   echo "<title>Game house start</title>";
   echo"</head>";
   echo"<body>";
-  echo"<div id='header'>";
-  echo "</div>";
+  echo"<div id="header">";
+  echo"    <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>";
+  echo"    <h2><center>Game House</center></h2>";
+  echo"    <div id="SearchField"><center><?php getSearchView(); ?></center></div>";
+  echo"</div>";
 
   echo"<a href='loginView.php'>Login</a>";
   echo"<div id='contain'>";
@@ -94,9 +105,14 @@ if (isset($_GET['query'])) {
   }
 
   echo"<div id='footer'>";
+  echo"Blekinge Institute of Technology, 2016<br>";
+  echo"PA1435, Objektorientad Programmering<br>";
+  echo"Alfons Dahl <br>";
+  echo"Simon Nilsson<br>";
+  echo"Filip Pentikäinen<br>";
   echo"</div>";
-echo"</body>";
-echo"</html>";
+  echo"</body>";
+  echo"</html>";
 }
 
 ?>
