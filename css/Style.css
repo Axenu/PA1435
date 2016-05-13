@@ -24,8 +24,9 @@ body {
 #contain{
   height: 500px;
   background-color: green;
-  width: 720px;
+  width: 680px;
   margin: auto;
+  padding: 20px;
 }
 
 #footer {
