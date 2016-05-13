@@ -12,17 +12,20 @@ body {
 }
 
 #header{
-  height: 200px;
+  height: 250px;
   width: 720px;
   margin: auto;
   margin-bottom: 10px;
-  background-color: black;
+  background-color: orange;
   position: relative;
   z-index:9;
 }
 
 #contain{
   height: 500px;
+  background-color: green;
+  width: 720px;
+  margin: auto;
 }
 
 #footer {
@@ -31,7 +34,7 @@ body {
   bottom: 0px;
   margin: auto;
   margin-bottom: 10px;
-  background-color: black;
+  background-color: blue;
   position: relative;
   z-index:9;
   color: white;
@@ -49,6 +52,13 @@ h1{
   padding-top: 55px;
 }
 
+h2{
+  font-family: verdana;
+  font-size: 600%;
+  color: white;
+  padding-top: 20px;
+}
+
 #LoginField{
   width: 90px;
   height: 20px;
@@ -57,4 +67,13 @@ h1{
   position: absolute;
   background-color: grey;
   color: white;
+}
+
+#SearchField{
+  width: 300px;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  position: relative;
+  background-color: purple;
 }
