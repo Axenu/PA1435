@@ -12,8 +12,8 @@ body {
 }
 
 #header{
-  height: 200px;
-  width: 720px;
+  height: 170px;
+  width: 1080px;
   margin: auto;
   margin-bottom: 10px;
   background-color: black;
@@ -23,11 +23,16 @@ body {
 
 #contain{
   height: 500px;
+  width: 1080px;
+  margin: auto;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: #4AA;
 }
 
 #footer {
-  height: 200px;
-  width: 720px;
+  height: 150px;
+  width: 1080px;
   bottom: 0px;
   margin: auto;
   margin-bottom: 10px;
@@ -46,7 +51,7 @@ h1{
   font-family: verdana;
   font-size: 300%;
   color: white;
-  padding-top: 55px;
+  padding-top: 40px;
 }
 
 #LoginField{
