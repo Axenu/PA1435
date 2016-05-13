@@ -1,4 +1,4 @@
-﻿*{
+*{
 }
 
 html {
@@ -12,31 +12,29 @@ body {
 }
 
 #header{
-  height: 170px;
-  width: 1080px;
+  height: 250px;
+  width: 720px;
   margin: auto;
   margin-bottom: 10px;
-  background-color: black;
+  background-color: orange;
   position: relative;
   z-index:9;
 }
 
 #contain{
   height: 500px;
-  width: 1080px;
+  background-color: green;
+  width: 720px;
   margin: auto;
-  margin-bottom: 10px;
-  position: relative;
-  background-color: #4AA;
 }
 
 #footer {
-  height: 150px;
-  width: 1080px;
+  height: 200px;
+  width: 720px;
   bottom: 0px;
   margin: auto;
   margin-bottom: 10px;
-  background-color: black;
+  background-color: blue;
   position: relative;
   z-index:9;
   color: white;
@@ -44,21 +42,21 @@ body {
 
 p {
  font-family: arial,verdana, helvetica, sans-serif;
- font-size: 11px;
- line-height:150%;
- letter-spacing: 1px;
- color: #000000;
- text-align:justify;
- margin:15px;
- font-size:16px;
- font-family:verdana;
+ font-size: 11px; line-height:150%; letter-spacing: 1px; color: #000000; text-align:justify; margin:15px; font-size:16px; font-family:verdana;
 }
 
 h1{
   font-family: verdana;
   font-size: 300%;
   color: white;
-  padding-top: 40px;
+  padding-top: 55px;
+}
+
+h2{
+  font-family: verdana;
+  font-size: 600%;
+  color: white;
+  padding-top: 20px;
 }
 
 #LoginField{
@@ -69,4 +67,13 @@ h1{
   position: absolute;
   background-color: grey;
   color: white;
+}
+
+#SearchField{
+  width: 300px;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  position: relative;
+  background-color: purple;
 }

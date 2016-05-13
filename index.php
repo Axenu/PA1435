@@ -6,7 +6,6 @@
   <?php include_once 'searchView.php';
   getSeachInclude(); ?>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Index</title>
   <title>Game house start</title>
 </head>
 <body>

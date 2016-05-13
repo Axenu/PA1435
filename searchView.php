@@ -22,10 +22,10 @@ if (isset($_GET['query'])) {
     echo "<title>Game house start</title>";
     echo"</head>";
     echo"<body>";
-    echo"<div id="header">";
-    echo"    <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>";
+    echo"<div id='header'>";
+    echo"    <div id='LoginField'><a href='loginView.php'><center>Login</a></center></div>";
     echo"    <h2><center>Game House</center></h2>";
-    echo"    <div id="SearchField"><center><?php getSearchView(); ?></center></div>";
+    echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
     echo"</div>";
 
     echo"<a href='loginView.php'>Login</a>";
@@ -73,10 +73,10 @@ if (isset($_GET['query'])) {
   echo "<title>Game house start</title>";
   echo"</head>";
   echo"<body>";
-  echo"<div id="header">";
-  echo"    <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>";
+  echo"<div id='header'>";
+  echo"    <div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
   echo"    <h2><center>Game House</center></h2>";
-  echo"    <div id="SearchField"><center><?php getSearchView(); ?></center></div>";
+  echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
   echo"</div>";
 
   echo"<a href='loginView.php'>Login</a>";
