@@ -5,7 +5,10 @@ html {
   font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
   color: #f00;
   background-repeat: no-repeat;
-  background-color: #948;
+  background-color: #fff;
+  background-image: url("../images/bg.jpg");
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 body {
@@ -15,23 +18,22 @@ body {
   height: 250px;
   width: 720px;
   margin: auto;
-  margin-bottom: 10px;
   background-color: orange;
   position: relative;
   z-index:9;
+  top: -70px;
 }
 
 #contain{
-  height: 500px;
   background-color: green;
   width: 680px;
   margin: auto;
   padding: 20px;
+  margin-top: -70px;
 }
 
 #footer {
-  height: 200px;
-  width: 720px;
+  width: 710px;
   bottom: 0px;
   margin: auto;
   margin-bottom: 10px;
@@ -39,11 +41,18 @@ body {
   position: relative;
   z-index:9;
   color: white;
+  padding-left: 10px;
 }
 
 p {
  font-family: arial,verdana, helvetica, sans-serif;
- font-size: 11px; line-height:150%; letter-spacing: 1px; color: #000000; text-align:justify; margin:15px; font-size:16px; font-family:verdana;
+ font-size: 14px;
+ line-height: 100%;
+ letter-spacing: 0px;
+ color: #000000;
+ text-align: justify;
+ margin: 15px;
+ font-family: verdana;
 }
 
 h1{
@@ -77,4 +86,12 @@ h2{
   margin: auto;
   position: relative;
   background-color: purple;
+}
+
+#review{
+  border-style: solid;
+  border-width: 2px;
+  border-color:black;
+  padding-left: 5px;
+  margin-bottom: 5px;
 }
