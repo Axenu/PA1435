@@ -10,17 +10,16 @@ include_once 'phpModel/loginModel.php';
     <?php include_once 'searchView.php';
     getSeachInclude(); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login Page</title>
-    <title>Game house Lannister</title>
+    <title>Login</title>
         <script type="text/JavaScript" src="js/sha512.js"></script>
         <script type="text/JavaScript" src="js/forms.js"></script>
   </head>
   <body>
 
     <div id="header">
-
-      <a href="loginView.php">Login</a>
-    <h1>Game House</h1>
+      <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
+      <h2><center>Game House</center></h2>
+      <div id="SearchField"><center><?php getSearchView(); ?></center></div>
   </div>
   <div id="contain">
     <center>
@@ -30,9 +29,9 @@ include_once 'phpModel/loginModel.php';
           }
           ?>
       <form action="phpModel/loginModel.php" method="post" name="login_form">
-        <p>Username: </p>
+        <div id="username_center"><p>Username: </p></div>
         <input type="text" name="username" placeholder="Username" autocomplete="username" id="username"/>
-        <p>Password: </p>
+        <div id="username_center"><p>Password: </p></div>
         <input type="password" name="password" id="password" placeholder="password" autocomplete="current-password"/>
         <input type="submit" value="Login" class="submit" onclick="formhash(this.form, this.form.password);" />
       </form>
