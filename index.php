@@ -11,13 +11,14 @@
 </head>
 <body>
   <div id="header">
+      <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
+      <h2><center>Game House</center></h2>
+      <div id="SearchField"><center><?php getSearchView(); ?></center></div>
   </div>
 
-  <a href="loginView.php">Login</a>
   <div id="contain">
   </div>
-  <?php getSearchView(); ?>
-  <h1>Game House</h1>
+
   <p>Info text</p>
   <a href="bookingView.php">book</a>
 
@@ -40,6 +41,11 @@
   ?>
 
   <div id="footer">
+    Blekinge Institute of Technology, 2016<br>
+    PA1435, Objektorientad Programmering<br>
+    Alfons Dahl <br>
+    Simon Nilsson<br>
+    Filip Pentikäinen<br>
   </div>
 </body>
 </html>

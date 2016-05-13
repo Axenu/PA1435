@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="css/Style.css" type="text/css"/>
@@ -15,4 +15,4 @@
   <div id="footer">
   </div>
 </body>
-</html>
+</html> -->
