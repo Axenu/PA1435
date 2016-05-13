@@ -17,10 +17,10 @@ include_once 'phpModel/loginModel.php';
   <body>
 
     <div id="header">
-      <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
-      <h2><center>Game House</center></h2>
-      <div id="SearchField"><center><?php getSearchView(); ?></center></div>
-  </div>
+        <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
+        <a href="index.php"><h2><center>Game House</center></h2></a>
+        <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+    </div>
   <div id="contain">
     <center>
       <?php
@@ -43,12 +43,9 @@ include_once 'phpModel/loginModel.php';
   </center>
   </div>
 
-  <div id="footer">
-    Blekinge Institute of Technology, 2016<br>
-    PA1435, Objektorientad Programmering<br>
-    Alfons Dahl <br>
-    Simon Nilsson<br>
-    Filip Pentikäinen<br>
+  <div id="footer"><p><center>
+    Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
+    Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
   </div>
 
   </body>
