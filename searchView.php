@@ -23,7 +23,7 @@ if (isset($_GET['query'])) {
     echo"</head>";
     echo"<body>";
     echo"<div id='header'>";
-    echo"</div>";
+    echo "</div>";
 
     echo"<a href='loginView.php'>Login</a>";
     echo"<div id='contain'>";
