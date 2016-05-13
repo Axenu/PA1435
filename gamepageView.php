@@ -2,16 +2,21 @@
 <html>
 <head>
   <link rel="stylesheet" href="css/Style.css" type="text/css"/>
+  <script src="js/jquery.js"></script>
+  <?php include_once 'searchView.php';
+  getSeachInclude(); ?>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Site name</title>
+  <title>Game Page</title>
+  <title>Game house Lannister</title>
 </head>
 <body>
   <div id="header">
     <div id="LoginField">
-      <center>Login</center>
+      <center><a href="loginView.php">Login</a></center>
     </div>
     <center><h1>Game House</h1></center>
   </div>
+  <?php getSearchView(); ?>
 
   <div id="contain">
   </div>
