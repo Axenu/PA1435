@@ -5,7 +5,7 @@ include_once 'phpModel/registerModel.php';
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Game house start</title>
+    <title>Register</title>
   	<script src="js/jquery.js"></script>
   	<script src="js/forms.js"></script>
   	<script src="js/sha512.js"></script>

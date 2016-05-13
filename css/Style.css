@@ -5,7 +5,7 @@ html {
   font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
   color: #f00;
   background-repeat: no-repeat;
-  background-color: #fff;
+  background-color: #000;
   background-image: url("../images/bg.jpg");
   background-size: 100%;
   background-attachment: fixed;
@@ -18,43 +18,42 @@ body {
   height: 250px;
   width: 720px;
   margin: auto;
-  background-color: orange;
+  background-color: grey;
   position: relative;
   z-index:9;
   top: -70px;
 }
 
 #contain{
-  background-color: green;
+  background-color:  darkgrey;
   width: 680px;
   margin: auto;
   padding: 20px;
   margin-top: -50px;
+  margin-bottom: -30px;
 }
 
 #footer {
-  width: 710px;
-  bottom: 0px;
+  width: 100.4%;
+  bottom: -15px;
   margin: auto;
-  margin-bottom: 10px;
-  background-color: blue;
+  margin-bottom: 0px;
+  background-color: grey;
   position: relative;
   z-index:9;
-  color: white;
+  color: black;
   padding-left: 10px;
+  left: -10px;
 }
 
 p {
  font-family: arial,verdana, helvetica, sans-serif;
-<<<<<<< HEAD
- font-size: 11px;
+ font-size: 15px;
  line-height:150%;
- letter-spacing: 1px;
+ letter-spacing: 0px;
  color: #000000;
  text-align:justify;
  margin:15px;
- font-size:16px;
- font-family:verdana;
 }
 
 h6{
@@ -66,15 +65,6 @@ h6{
   text-align:justify;
   margin:15px;
   font-family:verdana;
-=======
- font-size: 14px;
- line-height: 100%;
- letter-spacing: 0px;
- color: #000000;
- text-align: justify;
- margin: 15px;
- font-family: verdana;
->>>>>>> 6b597f96c34ade495998242b8bbeb4c658caa4d0
 }
 
 h1{
@@ -87,7 +77,7 @@ h1{
 h2{
   font-family: verdana;
   font-size: 600%;
-  color: white;
+  color: black;
   padding-top: 20px;
 }
 
@@ -103,8 +93,16 @@ h2{
   top: 0px;
   right: 0px;
   position: absolute;
-  background-color: grey;
+  background-color: lightgrey;
   color: white;
+}
+
+a{
+  text-decoration: none;
+  color:darkred;
+}
+a:hover{
+  color:red;
 }
 
 #SearchField{
@@ -113,7 +111,7 @@ h2{
   vertical-align: middle;
   margin: auto;
   position: relative;
-  background-color: purple;
+  background-color: grey;
 }
 
 #review{

@@ -11,7 +11,7 @@
 <body>
   <div id="header">
       <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
-      <h2><center>Game House</center></h2>
+      <a href="index.php"><h2><center>Game House</center></h2></a>
       <div id="SearchField"><center><?php getSearchView(); ?></center></div>
   </div>
 
@@ -19,8 +19,19 @@
     <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
+    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    avaiable to play at the house and book time at our computers. You can register
+    an account for a faster booking experience and for easy access to the games you
+    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    avaiable to play at the house and book time at our computers. You can register
+    an account for a faster booking experience and for easy access to the games you
+    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    avaiable to play at the house and book time at our computers. You can register
+    an account for a faster booking experience and for easy access to the games you
+    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    avaiable to play at the house and book time at our computers. You can register
+    an account for a faster booking experience and for easy access to the games you
     usually play. </p>
-
 
     <a href="bookingView.php">book</a>
     <?php
@@ -44,12 +55,9 @@
     ?>
   </div>
 
-  <div id="footer">
-    Blekinge Institute of Technology, 2016<br>
-    PA1435, Objektorientad Programmering<br>
-    Alfons Dahl <br>
-    Simon Nilsson<br>
-    Filip Pentikäinen<br>
+  <div id="footer"><p><center>
+    Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
+    Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
   </div>
 </body>
 </html>

@@ -22,9 +22,9 @@ if (isset($_GET['query'])) {
     echo"</head>";
     echo"<body>";
     echo"<div id='header'>";
-    echo"    <div id='LoginField'><a href='loginView.php'><center>Login</a></center></div>";
-    echo"    <h2><center>Game House</center></h2>";
-    echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
+    echo"<div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
+    echo"<a href='index.php'><h2><center>Game House</center></h2></a>";
+    echo"<div id='SearchField'><center><?php getSearchView(); ?></center></div>";
     echo"</div>";
 
     echo"<div id='contain'>";
@@ -46,15 +46,11 @@ if (isset($_GET['query'])) {
     echo"<a href='bookingView.php'>book</a>";
     echo"</div>";
 
-    echo"<div id='footer'>";
-    echo"Blekinge Institute of Technology, 2016<br>";
-    echo"PA1435, Objektorientad Programmering<br>";
-    echo"Alfons Dahl <br>";
-    echo"Simon Nilsson<br>";
-    echo"Filip Pentikäinen<br>";
+    echo"<div id='footer'><p><center>";
+    echo"Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>";
     echo"</div>";
-  echo"</body>";
-  echo"</html>";
+    echo"</body>";
+    echo"</html>";
 } else if (isset($_GET['game'])) {
   //display game page
   echo "<!DOCTYPE html>";
@@ -69,9 +65,9 @@ if (isset($_GET['query'])) {
   echo"</head>";
   echo"<body>";
   echo"<div id='header'>";
-  echo"    <div id='LoginField'><a href='loginView.php'><center>Login</a></center></div>";
-  echo"    <h2><center>Game House</center></h2>";
-  echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
+  echo"<div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
+  echo"<a href='index.php'><h2><center>Game House</center></h2></a>";
+  echo"<div id='SearchField'><center><?php getSearchView(); ?></center></div>";
   echo"</div>";
 
   echo"<div id='contain'>";
@@ -98,12 +94,8 @@ if (isset($_GET['query'])) {
 
   echo"</div>";
 
-  echo"<div id='footer'>";
-  echo"Blekinge Institute of Technology, 2016<br>";
-  echo"PA1435, Objektorientad Programmering<br>";
-  echo"Alfons Dahl <br>";
-  echo"Simon Nilsson<br>";
-  echo"Filip Pentikäinen<br>";
+  echo"<div id='footer'><p><center>";
+  echo"Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>";
   echo"</div>";
   echo"</body>";
   echo"</html>";
