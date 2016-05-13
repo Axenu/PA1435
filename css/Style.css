@@ -59,6 +59,12 @@ h2{
   padding-top: 20px;
 }
 
+#username_center{
+  width: 100px;
+  margin: auto;
+  position: relative;
+}
+
 #LoginField{
   width: 90px;
   height: 20px;
