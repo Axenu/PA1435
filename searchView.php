@@ -84,16 +84,16 @@ if (isset($_GET['query'])) {
       $stmt->execute();
       $stmt->bind_result($title, $desc, $picture, $rating);
       while ($stmt->fetch()) {
-          echo "<h2>".$title."</h2>";
-          echo "<p>".$desc."</p>";
-          echo "<img src='".$picture."'>'";
-          echo "<p>Rating: ".$rating."</p>";
+          echo "<h1>".$title."</h1>";
+          echo "<img src='".$picture."'>";
+          echo "<div id='gamedesc'><p>".$desc."</p></div>";
+          echo "<div id='gamedescrating'><p>Rating: ".$rating."</p></div>";
       }
   } else {
         echo "SELECT title, description, picture, rating FROM games WHERE title LIKE '".$_GET['game']."%' LIMIT 5";
   }
 
-  echo"<p>Info text</p>";
+  echo"<div id='gamedescinfo'><p>Info text</p></div>";
   echo"<a href='bookingView.php'>book</a>";
 
   echo"</div>";

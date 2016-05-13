@@ -32,6 +32,38 @@ body {
   margin-top: -50px;
 }
 
+#gamedesc{
+  width: 330px;
+  height: 400px;
+  margin-left: 0px;
+  padding: 5px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 1px;
+}
+#gamedescrating{
+  width: 330px;
+  height: 50px;
+  margin-left: 0px;
+  padding: 5px;
+  position: absolute;
+  background-color: pink;
+  top: 503px;
+  left: 51%;
+}
+
+#gamedescinfo{
+  width: 330px;
+  height: 300px;
+  margin-left: 0px;
+  padding: 5px;
+  background-color: lightblue;
+  position: absolute;
+  top: 573px;
+  left: 51%;
+}
+
+
 #footer {
   width: 710px;
   bottom: 0px;
@@ -66,15 +98,6 @@ h6{
   text-align:justify;
   margin:15px;
   font-family:verdana;
-=======
- font-size: 14px;
- line-height: 100%;
- letter-spacing: 0px;
- color: #000000;
- text-align: justify;
- margin: 15px;
- font-family: verdana;
->>>>>>> 6b597f96c34ade495998242b8bbeb4c658caa4d0
 }
 
 h1{
