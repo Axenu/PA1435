@@ -1,4 +1,9 @@
-function searchStringChnged() {
+function searchStringChnged(e) {
+    if (e.keyCode == 13) {
+        var query = $('.searchBar').val()
+        window.location.href = "/searchView.php?query="+query;
+        return;
+    }
     if ($('.searchBar').val() != '') {
         $.ajax({ url: '/phpModel/searchModel.php',
             data: {action: 'search',
@@ -15,5 +20,5 @@ function searchStringChnged() {
 
 function showResults(senderObj) {
     var query = $(senderObj).text()
-    window.location.href = "/searchView.php?query="+query;
+    window.location.href = "/searchView.php?game="+query;
 }
