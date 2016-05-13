@@ -12,7 +12,7 @@ include_once 'phpModel/registerModel.php';
   </head>
   <body>
 
-      <a href="loginView.php">Login</a>
+    <a href="loginView.php">Login</a>
     <h1>Game House</h1>
     <p class="errormsg hideError"> error message! </p>
     <form action="phpModel/registerModel.php"

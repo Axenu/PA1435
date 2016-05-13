@@ -6,7 +6,7 @@
   <?php include_once 'searchView.php';
   getSeachInclude(); ?>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Game house start</title>
+  <title>Home</title>
 </head>
 <body>
   <div id="header">
@@ -16,28 +16,29 @@
   </div>
 
   <div id="contain">
-  </div>
+    <p>WElcome to our game house website. Here you can see what games we have
+      avaiable to play at the house and book time at our computers. You can get
+    and overview of all the games in our </p>
+    <a href="bookingView.php">book</a>
 
-  <p>Info text</p>
-  <a href="bookingView.php">book</a>
-
-  <?php
-    $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
-    // if ($mysqli->connect_error) {
-    //   echo "Connection failed: " . $conn->connect_error;
-    // }
-    if (($result = $mysqli->query("SELECT * FROM `reviews_house` LIMIT 5"))) {
-      while($obj = $result->fetch_object()) {
-        echo "<div class='review'>\n";
-        echo "<h3 class='reviewTitle'>".$obj->title."</h3>\n";
-        echo "<p class='reviewRating'>".$obj->rating."</p>\n";
-        echo "<p class='reviewContent'>".$obj->content."</p>\n";
-        echo "</div>\n";
+    <?php
+      $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
+      // if ($mysqli->connect_error) {
+      //   echo "Connection failed: " . $conn->connect_error;
+      // }
+      if (($result = $mysqli->query("SELECT * FROM `reviews_house` LIMIT 5"))) {
+        while($obj = $result->fetch_object()) {
+          echo "<div class='review'>\n";
+          echo "<h3 class='reviewTitle'>".$obj->title."</h3>\n";
+          echo "<p class='reviewRating'>".$obj->rating."</p>\n";
+          echo "<p class='reviewContent'>".$obj->content."</p>\n";
+          echo "</div>\n";
+        }
+      } else {
+        echo "SELECT * FROM `reviews_house` LIMIT 5";
       }
-    } else {
-      echo "SELECT * FROM `reviews_house` LIMIT 5";
-    }
-  ?>
+    ?>
+  </div>
 
   <div id="footer">
     Blekinge Institute of Technology, 2016<br>
