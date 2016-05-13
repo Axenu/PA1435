@@ -5,7 +5,6 @@ function searchStringChnged() {
                    query: $('.searchBar').val()},
             type: 'post',
             success: function(output) {
-                console.log(output);
                 $('.searchResulContainer').html(output);
             }
         });
@@ -15,7 +14,6 @@ function searchStringChnged() {
 }
 
 function showResults(senderObj) {
-    console.log($(senderObj).text())
     var query = $(senderObj).text()
     window.location.href = "/searchView.php?query="+query;
 }
