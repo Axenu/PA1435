@@ -13,3 +13,9 @@ function searchStringChnged() {
         $('.searchResulContainer').html("");
     }
 }
+
+function showResults(senderObj) {
+    console.log($(senderObj).text())
+    var query = $(senderObj).text()
+    window.location.href = "/searchView.php?query="+query;
+}

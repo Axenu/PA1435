@@ -14,9 +14,8 @@ if (isset($_POST['action'])) {
         $stmt->execute();
         $stmt->bind_result($title);
         while ($stmt->fetch()) {
-          echo "<p>".$title."</p>";
+          echo "<p onclick='showResults(this)'>".$title."</p>";
         }
-        // echo "$title";
       } else {
         echo "SELECT title FROM games WHERE title LIKE '".$_POST['query']."%' LIMIT 5";
       }
