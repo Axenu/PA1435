@@ -10,7 +10,7 @@ include_once 'phpModel/loginModel.php';
     <?php include_once 'searchView.php';
     getSeachInclude(); ?>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login</title>
+    <title>Game House Login</title>
         <script type="text/JavaScript" src="js/sha512.js"></script>
         <script type="text/JavaScript" src="js/forms.js"></script>
   </head>
@@ -35,8 +35,20 @@ include_once 'phpModel/loginModel.php';
         <input type="password" name="password" id="password" placeholder="password" autocomplete="current-password"/>
         <input type="submit" value="Login" class="submit" onclick="formhash(this.form, this.form.password);" />
       </form>
-      <p>If you don't have a login, please <a href='registerView.php'>register</a></p>
+      <div id="username_center">
+        <h6><center>Forgot password? click here: <a href='registerView.php'><br>forgot password</a></center></h6><br>
+        <h6><center>If you don't have a login, please <a href='registerView.php'>register</a></center></h6>
+
+      </div>
   </center>
+  </div>
+
+  <div id="footer">
+    Blekinge Institute of Technology, 2016<br>
+    PA1435, Objektorientad Programmering<br>
+    Alfons Dahl <br>
+    Simon Nilsson<br>
+    Filip Pentikäinen<br>
   </div>
 
   </body>

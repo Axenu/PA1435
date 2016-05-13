@@ -18,8 +18,7 @@ if (isset($_GET['query'])) {
     echo "<?php include_once 'searchView.php';";
     echo "getSeachInclude(); ?>";
     echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>";
-    echo "<title>Index</title>";
-    echo "<title>Game house start</title>";
+    echo "<title>Game house Lannister</title>";
     echo"</head>";
     echo"<body>";
     echo"<div id='header'>";
@@ -28,13 +27,7 @@ if (isset($_GET['query'])) {
     echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
     echo"</div>";
 
-    echo"<a href='loginView.php'>Login</a>";
     echo"<div id='contain'>";
-    echo"</div>";
-    echo"<?php getSearchView(); ?>";
-    echo"<h1>Game House</h1>";
-    echo"<p>Info text</p>";
-    echo"<a href='bookingView.php'>book</a>";
 
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
@@ -49,6 +42,9 @@ if (isset($_GET['query'])) {
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
     }
+    echo"<p>Info text</p>";
+    echo"<a href='bookingView.php'>book</a>";
+    echo"</div>";
 
     echo"<div id='footer'>";
     echo"Blekinge Institute of Technology, 2016<br>";
@@ -69,23 +65,16 @@ if (isset($_GET['query'])) {
   echo "<?php include_once 'searchView.php';";
   echo "getSeachInclude(); ?>";
   echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>";
-  echo "<title>Index</title>";
-  echo "<title>Game house start</title>";
+  echo "<title>Game house</title>";
   echo"</head>";
   echo"<body>";
   echo"<div id='header'>";
-  echo"    <div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
+  echo"    <div id='LoginField'><a href='loginView.php'><center>Login</a></center></div>";
   echo"    <h2><center>Game House</center></h2>";
   echo"    <div id='SearchField'><center><?php getSearchView(); ?></center></div>";
   echo"</div>";
 
-  echo"<a href='loginView.php'>Login</a>";
   echo"<div id='contain'>";
-  echo"</div>";
-  echo"<?php getSearchView(); ?>";
-  echo"<h1>Game House</h1>";
-  echo"<p>Info text</p>";
-  echo"<a href='bookingView.php'>book</a>";
 
   $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
@@ -103,6 +92,11 @@ if (isset($_GET['query'])) {
   } else {
         echo "SELECT title, description, picture, rating FROM games WHERE title LIKE '".$_GET['game']."%' LIMIT 5";
   }
+
+  echo"<p>Info text</p>";
+  echo"<a href='bookingView.php'>book</a>";
+
+  echo"</div>";
 
   echo"<div id='footer'>";
   echo"Blekinge Institute of Technology, 2016<br>";

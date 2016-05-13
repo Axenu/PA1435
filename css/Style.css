@@ -43,7 +43,25 @@ body {
 
 p {
  font-family: arial,verdana, helvetica, sans-serif;
- font-size: 11px; line-height:150%; letter-spacing: 1px; color: #000000; text-align:justify; margin:15px; font-size:16px; font-family:verdana;
+ font-size: 11px;
+ line-height:150%;
+ letter-spacing: 1px;
+ color: #000000;
+ text-align:justify;
+ margin:15px;
+ font-size:16px;
+ font-family:verdana;
+}
+
+h6{
+  font-family: arial,verdana, helvetica, sans-serif;
+  font-size: 8px;
+  line-height:100%;
+  letter-spacing: 0px;
+  color: #000000;
+  text-align:justify;
+  margin:15px;
+  font-family:verdana;
 }
 
 h1{
@@ -61,7 +79,7 @@ h2{
 }
 
 #username_center{
-  width: 100px;
+  width: 200px;
   margin: auto;
   position: relative;
 }
