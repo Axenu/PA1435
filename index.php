@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-  <link rel="stylesheet" href="css.css" type="text/css"/>
+  <link rel="stylesheet" href="css/Style.css" type="text/css"/>
+  <script src="js/jquery.js"></script>
+  <?php include_once 'searchView.php';
+  getSeachInclude(); ?>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Index</title>
-=======
   <title>Game house start</title>
->>>>>>> c6565a2c94e0374fb65f55ac1c1f175b2b5a0f0c
 </head>
 <body>
   <div id="header">
   </div>
 
-<<<<<<< HEAD
+  <a href="loginView.php">Login</a>
   <div id="contain">
   </div>
-=======
-  <a href="login.php">Login</a>
+  <?php getSearchView(); ?>
   <h1>Game House</h1>
   <p>Info text</p>
-  <a href="bookView.php">book</a>
+  <a href="bookingView.php">book</a>
 
   <?php
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
@@ -39,7 +38,6 @@
       echo "SELECT * FROM `reviews_house` LIMIT 5";
     }
   ?>
->>>>>>> c6565a2c94e0374fb65f55ac1c1f175b2b5a0f0c
 
   <div id="footer">
   </div>
