@@ -19,7 +19,7 @@ include_once 'phpModel/registerModel.php';
 
     <div id="header">
         <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
-        <a href="index.php"><h2><center>Game House</center></h2></a>
+        <a href="index.php"><div id="logo"></div></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
         <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
     </div>
