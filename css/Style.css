@@ -21,7 +21,13 @@ body {
   background-color: grey;
   position: relative;
   z-index:9;
-  top: -70px;
+  top: 0px;
+  border-style: solid;
+  border-width: 3px;
+  border-color:black;
+  border-radius: 25px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 #contain{
@@ -29,8 +35,15 @@ body {
   width: 680px;
   margin: auto;
   padding: 20px;
-  margin-top: -50px;
+  margin-top: 10px;
   margin-bottom: -30px;
+  border-style: solid;
+  border-width: 3px;
+  border-color:black;
+  border-bottom: 0px;
+  border-radius: 25px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 #gamedesc{
@@ -88,17 +101,6 @@ p {
  margin:15px;
 }
 
-h6{
-  font-family: arial,verdana, helvetica, sans-serif;
-  font-size: 8px;
-  line-height:100%;
-  letter-spacing: 0px;
-  color: #000000;
-  text-align:justify;
-  margin:15px;
-  font-family:verdana;
-}
-
 h1{
   font-family: verdana;
   font-size: 300%;
@@ -110,13 +112,24 @@ h2{
   font-family: verdana;
   font-size: 600%;
   color: black;
-  padding-top: 20px;
+  margin-top: 20px;
 }
 
 h3{
   font-family: verdana;
   font-size: 100%;
   color: black;
+}
+
+h6{
+  font-family: arial,verdana, helvetica, sans-serif;
+  font-size: 8px;
+  line-height:100%;
+  letter-spacing: 0px;
+  color: #000000;
+  text-align:justify;
+  margin:15px;
+  font-family:verdana;
 }
 
 #username_center{
@@ -150,6 +163,7 @@ a:hover{
   margin: auto;
   position: relative;
   background-color: grey;
+  margin-top: 0px;
 }
 
 #review{
@@ -184,4 +198,5 @@ a:hover{
   position: absolute;
   background-color: lightgrey;
   color: white;
+  border-bottom-right-radius: 25px;
 }
