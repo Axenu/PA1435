@@ -3,7 +3,7 @@
 
 html {
   font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
-  color: #f00;
+  color: red;
   background-repeat: no-repeat;
   background-color: #000;
   background-image: url("../images/bg.jpg");
@@ -174,4 +174,14 @@ a:hover{
   background-color: lightgray;
   margin-left: 0px;
   padding: 5px;
+}
+
+#BookingField{
+  width: 90px;
+  height: 20px;
+  top: 230px;
+  right: 0px;
+  position: absolute;
+  background-color: lightgrey;
+  color: white;
 }

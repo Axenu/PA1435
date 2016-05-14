@@ -20,6 +20,7 @@ include_once 'phpModel/loginModel.php';
         <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
         <a href="index.php"><h2><center>Game House</center></h2></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+        <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
     </div>
   <div id="contain">
     <center>
@@ -36,7 +37,7 @@ include_once 'phpModel/loginModel.php';
         <input type="submit" value="Login" class="submit" onclick="formhash(this.form, this.form.password);" />
       </form>
       <div id="username_center">
-        <h6><center>Forgot password? click here: <a href='registerView.php'><br>forgot password</a></center></h6><br>
+        <h6><center>Forgot password? click here: <a href='ViHarIngenSidaHar.php'><br>forgot password</a></center></h6><br>
         <h6><center>If you don't have a login, please <a href='registerView.php'>register</a></center></h6>
 
       </div>
