@@ -6,7 +6,7 @@ html {
   color: red;
   background-repeat: no-repeat;
   background-color: #000;
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/background/bg.jpg");
   background-size: 100%;
   background-attachment: fixed;
 }
