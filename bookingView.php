@@ -38,14 +38,11 @@ if (!isset($_GET['game'])) {
     echo"<div id='BookingField'><a href='bookingView.php'><center>Booking</center></a></div>";
     echo"</div>";
 
-    echo"<a href='loginView.php'>Login</a>";
 
     echo"<div id='contain'>";
+    echo "<p>Här ska en kalendervy visas</p>";
     echo"</div>";
 
-    echo"<?php getSearchView(); ?>";
-    echo"<h1>Game House</h1>";
-    echo"<a href='bookingView.php'>book</a>";
 
     echo"<div id='footer'><p><center>";
     echo"Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>";

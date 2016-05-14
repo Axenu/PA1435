@@ -20,16 +20,20 @@
     <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
     usually play. </p>
