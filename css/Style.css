@@ -153,3 +153,13 @@ a:hover{
   padding-left: 5px;
   margin-bottom: 5px;
 }
+
+#BookingField{
+  width: 90px;
+  height: 20px;
+  top: 230px;
+  right: 0px;
+  position: absolute;
+  background-color: lightgrey;
+  color: white;
+}

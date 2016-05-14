@@ -35,6 +35,7 @@ if (!isset($_GET['game'])) {
     echo"<div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
     echo"<a href='index.php'><h2><center>Game House</center></h2></a>";
     echo"<div id='SearchField'><center><?php getSearchView(); ?></center></div>";
+    echo"<div id='BookingField'><a href='bookingView.php'><center>Booking</center></a></div>";
     echo"</div>";
 
     echo"<a href='loginView.php'>Login</a>";

@@ -20,6 +20,7 @@ include_once 'phpModel/loginModel.php';
         <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
         <a href="index.php"><h2><center>Game House</center></h2></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+        <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
     </div>
   <div id="contain">
     <center>
