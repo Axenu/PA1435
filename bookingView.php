@@ -13,7 +13,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 <?php include_once 'searchView.php';
 getSeachInclude(); ?>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-<title>Game house book1</title>
+<title>Game house book</title>
 </head>
 <body>
 <div id='header'>
@@ -202,12 +202,40 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
         $user = htmlentities($_SESSION['username']);
         echo "<p>logged in as: ".$user."</p>";
         echo "<p>Confirm booking:</p>";
-        echo "<p>datePHP</p>";
-        echo "<p>numplayersPHP</p>";
-        echo "<p>gamePHP</p>";
-        echo "<p>accPHP</p>";
-        echo "<p>mentorPHP</p>";
-        echo "<p onclick='confirmBookingthis, '".$_GET['game']."', '".$_GET['date']."', '".$_GET['acc']."')'>Confirm</p>";
+        if ($stmt = $mysqli->prepare("SELECT day, hour, month FROM prices WHERE id = ? ")) {
+            $stmt->bind_param('i', $_GET['date']);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($day, $hour, $month);
+            while ($stmt->fetch()) {
+                echo "<p>Date: ".$day."/".$month.": ".$hour.":00</p>";
+            }
+        }
+        echo "<p>".$num." players</p>";
+        if ($stmt = $mysqli->prepare("SELECT title FROM games WHERE game_id = ? ")) {
+            $stmt->bind_param('i', $_GET['game']);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($title);
+            while ($stmt->fetch()) {
+                echo "<p>".$title."</p>";
+            }
+        }
+        if ($_GET['acc'] != 0) {
+            if ($stmt = $mysqli->prepare("SELECT name FROM accessories WHERE id = ? ")) {
+                $stmt->bind_param('i', $_GET['acc']);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->bind_result($title);
+                while ($stmt->fetch()) {
+                    echo "<p>Accessory: ".$title."</p>";
+                }
+            }
+        }
+        if ($_GET['mentor'] == 1) {
+            echo "<p>With mentor</p>";
+        }
+        echo "<p onclick=\"confirmBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$_GET['acc']."', '".$_SESSION['user_id']."')\">Confirm</p>";
     } else {
     $ur = "bookingView.php?date=".$_GET['date']."&game=".$_GET['game']."&num=".$_GET['num']."&acc=".$_GET['acc'];
     // echo $ur;
