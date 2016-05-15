@@ -52,7 +52,7 @@ if (isset($_GET['query'])) {
     echo"</div>";
     echo"</body>";
     echo"</html>";
-} else if (isset($_GET['game'])) {
+} else if (isset($_GET['gameS'])) {
   //display game page
   echo "<!DOCTYPE html>";
   echo "<html>";

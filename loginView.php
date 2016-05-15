@@ -1,5 +1,6 @@
 <?php
-include_once 'phpModel/loginModel.php';
+include_once 'phpModel/functions.php';
+sec_session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,14 @@ include_once 'phpModel/loginModel.php';
   <body>
 
     <div id="header">
-        <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
+        <?php
+        if (login_check($mysqli) == true) {
+            ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><p onlick=''>logg out</p><?php
+        } else {
+            ?><a href="loginView.php"><center>Login</a><?php
+        }
+
+         ?>
         <a href="index.php"><div id="logo"></div></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
         <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>

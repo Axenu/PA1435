@@ -20,5 +20,5 @@ function searchStringChnged(e) {
 
 function showResults(senderObj) {
     var query = $(senderObj).text()
-    window.location.href = "/searchView.php?game="+query;
+    window.location.href = "/searchView.php?gameS="+query;
 }
