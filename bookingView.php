@@ -67,7 +67,7 @@ if (!isset($_GET['game'])) {
         $stmt->execute();
         $stmt->bind_result($day, $price);
         while ($stmt->fetch()) {
-          echo "<p onclick='showResults(this)'>day: ".$day." price: ".$price."</p>";
+          echo "<p onclick=''>day: ".$day." ca price: ".$price."</p>";
         }
       } else {
         // echo "SELECT title FROM games WHERE title LIKE '".$_POST['query']."%' LIMIT 5";

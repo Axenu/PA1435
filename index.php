@@ -11,29 +11,33 @@
 <body>
   <div id="header">
       <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div>
-      <a href="index.php"><h2><center>Game House</center></h2></a>
+      <a href="index.php"><div id="logo"></div></a>
       <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+      <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
   </div>
 
   <div id="contain">
     <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
-    usually play. </p><p>Welcome to our game house website. Here you can see what games we have
+    usually play. </p>
+    <p>Welcome to our game house website. Here you can see what games we have
     avaiable to play at the house and book time at our computers. You can register
     an account for a faster booking experience and for easy access to the games you
     usually play. </p>
 
-    <a href="bookingView.php">book</a>
     <?php
       $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
       // if ($mysqli->connect_error) {
