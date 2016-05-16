@@ -38,3 +38,16 @@ function confirmBooking(element, game_id, date_id, acc_id, user_id, men, num) {
     	}
 	});
 }
+
+function removeBooking(b_id) {
+    if (confirm("Ary you sure you want to remove booking?")) {
+        $.ajax({ url: '/phpModel/removeBookingModel.php',
+            data: {b_id: b_id},
+            type: 'post',
+            success: function(output) {
+                // console.log(output);
+                window.location.href = "/userView.php";
+        	}
+    	});
+    }
+}

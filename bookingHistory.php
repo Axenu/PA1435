@@ -14,6 +14,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
    <script src="js/forms.js"></script>
    <script src="js/sha512.js"></script>
    <script src="js/userModel.js"></script>
+   <script src="js/bookingModel.js"></script>
    <?php include_once 'searchView.php';
    getSeachInclude(); ?>
    <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
@@ -53,20 +54,20 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
             $stmt->bind_result($id);
             $stmt->fetch();
             $stmt->close();
-            $stmt = $mysqli->prepare("SELECT game_id, time_id FROM bookings WHERE user_id=".$_SESSION['user_id']." AND time_id > ".$id);
+            $stmt = $mysqli->prepare("SELECT game_id, time_id, id FROM bookings WHERE user_id=".$_SESSION['user_id']." AND time_id > ".$id);
             $stmt->execute();
-            $stmt->bind_result($game_id, $time_id);
+            $stmt->bind_result($game_id, $time_id, $b_id);
             $bookings = array();
             while($stmt->fetch()) {
-                $bookings[$time_id] = $game_id;
+                $bookings[$time_id] = [$game_id, $b_id];
             }
             $stmt->close();
             foreach ($bookings as $key => $val) {
-                $stmt = $mysqli->prepare("SELECT title FROM games WHERE game_id = ".$val);
+                $stmt = $mysqli->prepare("SELECT title FROM games WHERE game_id = ".$val[0]);
                 $stmt->execute();
                 $stmt->bind_result($title);
                 while($stmt->fetch()) {
-                    echo "<div class='booking'><p>".$title;
+                    echo "<div class=\"booking\" onclick=\"removeBooking('".$val[1]."')\"><p>".$title;
                 }
                 $stmt->close();
                 $stmt = $mysqli->prepare("SELECT month, day, hour FROM prices WHERE id = ".$key);
