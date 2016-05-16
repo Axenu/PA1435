@@ -1,5 +1,8 @@
 <?php
 include_once 'phpModel/registerModel.php';
+include_once 'phpModel/functions.php';
+sec_session_start();
+$mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 ?>
 
 <!DOCTYPE html>
@@ -32,41 +35,29 @@ include_once 'phpModel/registerModel.php';
     </div>
 
     <div id="contain">
-    <p class="errormsg hideError"> error message! </p>
+    <!-- <p class="errormsg hideError"> error message! </p> -->
     <form action="phpModel/registerModel.php"
                 method="post"
                 name="registration_form">
-            <div class="personal">
-              <div id="registerpersonal">
-                <h3><b> Personal information </b></h3>
-              <p>Namn: </p><input type="text" name="firstName" class="smallInput" id="firstName" placeholder="Firstname"/><br>
-              <input type="text" name="lastName" class="smallInput" id="lastName" placeholder="Lastname"/>
-              <p>Användarnamn: </p><input type='text' name='username' id='username' placeholder="Username"/>
+              <p>Username: </p><input type='text' name='username' id='username' placeholder="Username"/>
               <p>Email: </p><input type="text" name="email" id="email" placeholder="Email"/>
-              <p>Lösenord: </p><input type="password" name="password" id="password" placeholder="Password"/>
-              <p>Bekräfta lösenordet: </p><input type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm Password"/>
-            </div>
-            </div>
-            <div class="company">
-              <div id="registercompany">
-                  <h3><b> Company information </b></h3>
-                <p>Företagsnamn: </p><input type="text" name="company" id="company" placeholder="Företagsnamn"/>
-                <p>Organisationsnummer: </p><input type="text" name="orgnr" id="orgnr" placeholder="Organisationsnummer"/>
-                <p>Faktureringsaddress: </p><input type="text" name="address" id="address" placeholder="Faktureringsaddress"/>
-                <p>Postort: </p><input type="text" name="city" id="city" placeholder="Postort"/>
-                <p>Postnummer: </p><input type="text" name="postnr" id="postnr" placeholder="Postnummer"/>
-                <p>Fakturamärkning: </p><input type="text" name="faktura" id="faktura" placeholder="Fakturamärkning"/>
-                <p>Kontaktperson: </p><input type="text" name="contact" id="contact" placeholder="Kontaktperson"/>
-              </div>
-           </div>
-           <center>
+              <p>Password: </p><input type="password" name="password" id="password" placeholder="Password"/>
+              <p>Repeat password: </p><input type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm Password"/>
+              <p>First Name: </p>
+              <input type='text' name='firstName' id='firstName' placeholder='First Name' autocomplete='firstName'/>
+              <p>Last Name: </p>
+              <input type='text' name='lastName' id='lastName' placeholder='Last Name' autocomplete='lastName'/>
+              <p>Assress: </p>
+              <input type='text' name='address' placeholder='Address' autocomplete='address' id='address'/>
+              <p>City: </p>
+              <input type='text' name='city' placeholder='City' autocomplete='city' id='city'/>
+              <p>Postal Code: </p>
+              <input type='text' name='postnr' placeholder='Postal Code' autocomplete='postnr' id='postnr'/>
              <br>
-             <div  id="username_center">
             <input type="button" value="Register" class="submit" onclick="return regformhash(this.form, this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" />
         </form>
         <p class="return">Return to the <a href="loginView.php">login page</a>.</p>
       </div>
-      </center>
       </div>
 
       <div id="footer"><p><center>

@@ -27,7 +27,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
   <div id="header">
       <?php
       if (login_check($mysqli) == true) {
-          ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><a href='phpModel/logout.php'>logg out</a><?php
+          ?><a href='userView.php'><?php echo htmlentities($_SESSION['username']); ?></a><a href='phpModel/logout.php'>logg out</a><?php
       } else {
           ?><a href="loginView.php"><center>Login</a><?php
       }
