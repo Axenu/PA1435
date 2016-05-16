@@ -38,8 +38,31 @@ getSeachInclude(); ?>
 if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) {
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     date_default_timezone_set('Europe/Stockholm');
+    $month = date('n');
+    $year = date('Y');
+    if (isset($_GET['month'])) {
+        $month = $_GET['month'];
+    }
+    if (isset($_GET['year'])) {
+        $year = $_GET['year'];
+    }
+    $nmonth = $month+1;
+    $nyear = $year;
+    if ($nmonth > 12) {
+        $nmonth = 1;
+        $nyear = $nyear+1;
+    }
+    $pmonth = $month -1;
+    $pyear = $year;
+    if ($pmonth < 1) {
+        $pmonth = 12;
+        $pyear -= 1;
+    }
+    echo "<a href='bookingView.php?month=".$pmonth."&year=".$pyear."'>previous month</a>";
+    echo "<p>".date('F', mktime(0, 0, 0, $month, 10))." ".$year."</p>";
+    echo "<a href='bookingView.php?month=".$nmonth."&year=".$nyear."'>next month</a>";
 
-    if ($stmt = $mysqli->prepare("SELECT price FROM prices WHERE (month=".date('n').")")) {
+    if ($stmt = $mysqli->prepare("SELECT price FROM prices WHERE (month=".$month." AND year=".$year.")")) {
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows < 5) {
@@ -48,7 +71,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
             $days = cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'));
             for ($i = 0; $i < $days; $i++) {
                 for ($j = 0; $j < 24; $j++) {
-                    $query = "INSERT INTO `prices` (month, day, hour, price, year) VALUES (".date('n').", ".($i+1).", ".($j+1).", 100, ".date('Y').")";
+                    $query = "INSERT INTO `prices` (month, day, hour, price, year) VALUES (".$month.", ".($i+1).", ".($j+1).", 100, ".$year.")";
                     if ($result = $mysqli->query($query)) {
                     } else {
                         echo $query;
@@ -56,27 +79,28 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
                 }
             }
         }
-        $stmt = $mysqli->prepare("SELECT id, day, price, hour FROM prices WHERE (month=".date('n').")");
-        $stmt->execute();
-        $stmt->bind_result($id, $day, $price, $hour);
-        $d = 1;
-        echo "<div class='day'><p>1</p>";
-        while ($stmt->fetch()) {
-            if ($d == $day) {
-                if ($price != -1) {
-                    echo "<p onclick='checkAvailability(this)' id='".$id."'>time: ".$hour." price: ".$price."</p>";
-                }
-            } else {
-                $d = $day;
-                echo "</div>";
-                echo "<div class='day'><p>".$day."</p>";
-                if ($price != -1) {
-                    echo "<p onclick='checkAvailability(this)' id='".$id."'>time: ".$hour." price: ".$price."</p>";
-                }
+    } else {
+        echo 'errno: %d, error: %s'. $mysqli->errno, $mysqli->error;
+    }
+    $stmt = $mysqli->prepare("SELECT id, day, price, hour FROM prices WHERE (month=".$month.")");
+    $stmt->execute();
+    $stmt->bind_result($id, $day, $price, $hour);
+    $d = 1;
+    echo "<div class='day'><p>1</p>";
+    while ($stmt->fetch()) {
+        if ($d == $day) {
+            if ($price != -1) {
+                echo "<p onclick='checkAvailability(this)' id='".$id."'>time: ".$hour." price: ".$price."</p>";
+            }
+        } else {
+            $d = $day;
+            echo "</div>";
+            echo "<div class='day'><p>".$day."</p>";
+            if ($price != -1) {
+                echo "<p onclick='checkAvailability(this)' id='".$id."'>time: ".$hour." price: ".$price."</p>";
             }
         }
-      } else {
-      }
+    }
 } else if (isset($_GET['date']) && isset($_GET['num']) && !isset($_GET['game'])) {
 
     $macines = array();

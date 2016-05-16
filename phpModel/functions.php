@@ -133,9 +133,7 @@ function login_check($mysqli) {
         // Get the user-agent string of the user.
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
 
-        if ($stmt = $mysqli->prepare("SELECT password
-                                      FROM members
-                                      WHERE id = ? LIMIT 1")) {
+        if ($stmt = $mysqli->prepare("SELECT password FROM members WHERE id = ? LIMIT 1")) {
             // Bind "$user_id" to parameter.
             $stmt->bind_param('i', $user_id);
             $stmt->execute();   // Execute the prepared query.
