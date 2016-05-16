@@ -17,7 +17,7 @@ if (isset($_POST['action'])) {
           echo "<p onclick='showResults(this)'>".$title."</p>";
         }
       } else {
-        echo "SELECT title FROM games WHERE title LIKE '".$_POST['query']."%' LIMIT 5";
+        // echo "SELECT title FROM games WHERE title LIKE '".$_POST['query']."%' LIMIT 5";
       }
   }
 }

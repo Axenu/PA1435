@@ -19,6 +19,6 @@ function searchStringChnged(e) {
 }
 
 function showResults(senderObj) {
-    var query = $(senderObj).text()
+    var query = $(senderObj).text();
     window.location.href = "/searchView.php?gameS="+query;
 }
