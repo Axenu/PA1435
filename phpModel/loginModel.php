@@ -3,10 +3,9 @@
 include_once 'functions.php';
 sec_session_start();
 
-// if (!isset($_GET['acc'])) {
 if (isset($_POST['username'], $_POST['p'])) {
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
-    sec_session_start();
+    // sec_session_start();
     $email = $_POST['username'];
     $password = $_POST['p']; // The hashed password.
     if (login($email, $password, $mysqli) == true) {

@@ -107,13 +107,14 @@ function regformhash(form, uid, email, password, conf) {
     // Make sure the plaintext password doesn't get sent.
     password.value = "";
     conf.value = "";
-
+    console.log("test");
     // Finally submit the form.
     form.submit();
     return true;
 }
 
 function enterErrorText(text) {
+    console.log(text);
     $(".errormsg").text(text);
 	$(".errormsg").removeClass("hideError");
 }

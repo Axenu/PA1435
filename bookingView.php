@@ -9,6 +9,8 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 <head>
 <link rel='stylesheet' href='css/Style.css' type='text/css'/>
 <script src='js/bookingModel.js'></script>
+<script src='js/forms.js'></script>
+<script src='js/sha512.js'></script>
 <script src='js/jquery.js'></script>
 <?php include_once 'searchView.php';
 getSeachInclude(); ?>
@@ -19,7 +21,7 @@ getSeachInclude(); ?>
 <div id='header'>
     <?php
     if (login_check($mysqli) == true) {
-        ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><p onlick=''>logg out</p><?php
+        ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><a href='phpModel/logout.php'>logg out</a><?php
     } else {
         ?><a href="loginView.php"><center>Login</a><?php
     }
@@ -33,13 +35,11 @@ getSeachInclude(); ?>
 
 <div id='contain'>
 <?php
-if (!isset($_GET['game']) && !isset($_GET['date'])) {
+if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) {
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     date_default_timezone_set('Europe/Stockholm');
 
     if ($stmt = $mysqli->prepare("SELECT price FROM prices WHERE (month=".date('n').")")) {
-        // $query = $_POST['query']."%";
-        // $stmt->bind_param('s', $query);
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows < 5) {
@@ -76,7 +76,6 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
             }
         }
       } else {
-        // echo "SELECT title FROM games WHERE title LIKE '".$_POST['query']."%' LIMIT 5";
       }
 } else if (isset($_GET['date']) && isset($_GET['num']) && !isset($_GET['game'])) {
 
@@ -84,45 +83,45 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
 
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     if ($stmt = $mysqli->prepare("SELECT id FROM machines")) {
-        // $query = $_POST['query']."%";
-        // $stmt->bind_param('s', $query);
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($id);
         while ($stmt->fetch()) {
-            $machines[] = $id;
+            $machines[$id] = 1;
         }
     }
     $stmt->close();
     if ($stmt = $mysqli->prepare("SELECT machine_id FROM bookings WHERE time_id= ? ")) {
-        // $query = $_POST['query']."%";
         $stmt->bind_param('s', $_GET['date']);
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($id);
         while ($stmt->fetch()) {
             //remove from machines
-            $machines = array_diff($machines, $id);
+            if (array_key_exists($id, $machines)) {
+                $machines[$id] = 0;
+            }
         }
     }
     $stmt->close();
     $games = array();
-    foreach ($machines as $m) {
-        if ($stmt = $mysqli->prepare("SELECT game_id FROM game_machines WHERE machine_id = ? ")) {
-            // $query = $_POST['query']."%";
-            $stmt->bind_param('i', $m);
-            $stmt->execute();
-            $stmt->store_result();
-            $stmt->bind_result($id);
-            while ($stmt->fetch()) {
-                if (array_key_exists($id, $games)) {
-                    $games[$id] = $games[$id] + 1;
-                } else {
-                    $games[$id] = 1;
+    foreach ($machines as $key => $m) {
+        if ($m == 1) {
+            if ($stmt = $mysqli->prepare("SELECT game_id FROM game_machines WHERE machine_id = ? ")) {
+                $stmt->bind_param('i', $key);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->bind_result($id);
+                while ($stmt->fetch()) {
+                    if (array_key_exists($id, $games)) {
+                        $games[$id] = $games[$id] + 1;
+                    } else {
+                        $games[$id] = 1;
+                    }
                 }
+            } else {
+                echo "SELECT game_id FROM game_machines WHERE machine_id = ? ";
             }
-        } else {
-            echo "SELECT game_id FROM game_machines WHERE machine_id = ? ";
         }
     }
 
@@ -149,7 +148,7 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
         $stmt->store_result();
         $stmt->bind_result($id);
         while ($stmt->fetch()) {
-            $machines[] = $id;
+            $machines[$id] = 1;
         }
     }
     $stmt->close();
@@ -161,32 +160,38 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
         $stmt->bind_result($id);
         while ($stmt->fetch()) {
             //remove from machines
-            $machines = array_diff($machines, $id);
+            if (array_key_exists($id, $machines)) {
+                $machines[$id] = 0;
+            }
         }
     }
     $stmt->close();
     $acc = array();
-    foreach ($machines as $m) {
-        if ($stmt = $mysqli->prepare("SELECT accessory_id FROM accessories_machines WHERE machine_id = ? ")) {
-            $stmt->bind_param('i', $m);
-            $stmt->execute();
-            $stmt->store_result();
-            $stmt->bind_result($id);
-            while ($stmt->fetch()) {
-                if (array_key_exists($id, $acc)) {
-                    $acc[$id] = $acc[$id] + 1;
-                } else {
-                    $acc[$id] = 1;
+    $found = 0;
+    foreach ($machines as $key => $m) {
+        if ($m == 1) {
+            if ($stmt = $mysqli->prepare("SELECT accessory_id FROM accessories_machines WHERE machine_id = ? ")) {
+                $stmt->bind_param('i', $key);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->bind_result($id);
+                while ($stmt->fetch()) {
+                    if (array_key_exists($id, $acc)) {
+                        $acc[$id] = $acc[$id] + 1;
+                    } else {
+                        $acc[$id] = 1;
+                    }
                 }
+            } else {
+                echo "SELECT game_id FROM game_machines WHERE machine_id = ? ";
             }
-        } else {
-            echo "SELECT game_id FROM game_machines WHERE machine_id = ? ";
         }
     }
 
     foreach ($acc as $key => $i) {
         if ($i >= $_GET['num']) {
             $query = "SELECT picture, name FROM accessories WHERE id=".$key;
+            $found = 1;
             if ($result = $mysqli->query($query)) {
                 while($row = $result->fetch_assoc()) {
                     echo "<div onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$key."')\" class='gameSmall'><img src='".$row['picture']."'><p class='gameTitle'>".$row['name']."</p></div>";
@@ -196,6 +201,11 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
             }
         }
     }
+
+    if ($found == 0) {
+        echo "<p>There are no available accessories at this time</p>";
+    }
+    echo "<p onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '-1')\">Next</p>";
 } else if (isset($_GET['date']) && isset($_GET['num']) && isset($_GET['game']) && isset($_GET['acc'])) {
     if (login_check($mysqli) == true) {
         //confirmation site
@@ -249,23 +259,32 @@ if (!isset($_GET['game']) && !isset($_GET['date'])) {
     <?php echo "<input type='hidden' name='red' value='".$ur."'/>"; ?>
     </form>
 
-    <!-- <form action='phpModel/loginModel.php' method='post' name='login_form'>
+    <form action='phpModel/registerModel.php' method='post' name='login_form'>
     <div id='username_center'><p>First Name: </p></div>
-    <input type='fName' name='fName' id='fName' placeholder='First Name' autocomplete='fName'/>
+    <input type='text' name='firstName' id='firstName' placeholder='First Name' autocomplete='firstName'/>
     <div id='username_center'><p>Last Name: </p></div>
-    <input type='lName' name='lName' id='lName' placeholder='Last Name' autocomplete='lName'/>
+    <input type='text' name='lastName' id='lastName' placeholder='Last Name' autocomplete='lastName'/>
     <div id='username_center'><p>Assress: </p></div>
     <input type='text' name='address' placeholder='Address' autocomplete='address' id='address'/>
     <div id='username_center'><p>City: </p></div>
     <input type='text' name='city' placeholder='City' autocomplete='city' id='city'/>
     <div id='username_center'><p>Postal Code: </p></div>
-    <input type='text' name='pcode' placeholder='Postal Code' autocomplete='pcode' id='pcode'/>
+    <input type='text' name='postnr' placeholder='Postal Code' autocomplete='postnr' id='postnr'/>
     <div id='username_center'><p>Email: </p></div>
     <input type='text' name='email' placeholder='Email' autocomplete='email' id='email'/>
-    <input type='submit' value='Login as guest' class='submit' onclick='' /> -->
-    <!-- <?php echo "<input type='hidden' name='red' value='".$ur."'/>"; ?> -->
-    <!-- </form> -->
+    <input type='hidden' name='username' id='username' value='Guest'/>
+    <input type='hidden' name='password' id='password' value='F4fffff'/>
+    <input type='hidden' name='confirmpwd' id='confirmpwd' value='F4fffff'/>
+    <input type='submit' value='Login as guest' class='submit' onclick='return regformhash(this.form, this.form.username,this.form.email,this.form.password,this.form.confirmpwd);' />
+    <?php echo "<input type='hidden' name='red' value='".$ur."'/>"; ?>
+    </form>
     <?php }
+} else if (isset($_GET['confirm'])) {
+    ?>
+
+    <p>Booking complete</p>
+
+    <?php
 }
 
  ?>

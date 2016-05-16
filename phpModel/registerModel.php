@@ -1,48 +1,47 @@
 <?php
-function esc_url($url) {
-
-    if ('' == $url) {
-        return $url;
-    }
-
-    $url = preg_replace('|[^a-z0-9-~+_.?#=!&;,/:%@$\|*\'()\\x80-\\xff]|i', '', $url);
-
-    $strip = array('%0d', '%0a', '%0D', '%0A');
-    $url = (string) $url;
-
-    $count = 1;
-    while ($count) {
-        $url = str_replace($strip, '', $url, $count);
-    }
-
-    $url = str_replace(';//', '://', $url);
-
-    $url = htmlentities($url);
-
-    $url = str_replace('&amp;', '&#038;', $url);
-    $url = str_replace("'", '&#039;', $url);
-
-    if ($url[0] !== '/') {
-        // We're only interested in relative links from $_SERVER['PHP_SELF']
-        return '';
-    } else {
-        return $url;
-    }
-}
-
+// function esc_url($url) {
+//
+//     if ('' == $url) {
+//         return $url;
+//     }
+//
+//     $url = preg_replace('|[^a-z0-9-~+_.?#=!&;,/:%@$\|*\'()\\x80-\\xff]|i', '', $url);
+//
+//     $strip = array('%0d', '%0a', '%0D', '%0A');
+//     $url = (string) $url;
+//
+//     $count = 1;
+//     while ($count) {
+//         $url = str_replace($strip, '', $url, $count);
+//     }
+//
+//     $url = str_replace(';//', '://', $url);
+//
+//     $url = htmlentities($url);
+//
+//     $url = str_replace('&amp;', '&#038;', $url);
+//     $url = str_replace("'", '&#039;', $url);
+//
+//     if ($url[0] !== '/') {
+//         // We're only interested in relative links from $_SERVER['PHP_SELF']
+//         return '';
+//     } else {
+//         return $url;
+//     }
+// }
 $error_msg = "";
 if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
     // Sanitize and validate the data passed in
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $first_name = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
     $last_name = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
-    $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING);
-    $orgnr = filter_input(INPUT_POST, 'orgnr', FILTER_SANITIZE_STRING);
+    // $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING);
+    // $orgnr = filter_input(INPUT_POST, 'orgnr', FILTER_SANITIZE_STRING);
     $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
     $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
     $postnr = filter_input(INPUT_POST, 'postnr', FILTER_SANITIZE_STRING);
-    $faktura = filter_input(INPUT_POST, 'faktura', FILTER_SANITIZE_STRING);
-    $contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_STRING);
+    // $faktura = filter_input(INPUT_POST, 'faktura', FILTER_SANITIZE_STRING);
+    // $contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -82,24 +81,26 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
                 $stmt->close();
     }
     // check existing username
-    $prep_stmt = "SELECT id FROM members WHERE username = ? LIMIT 1";
-    $stmt = $mysqli->prepare($prep_stmt);
+    if ($username != 'Guest') {
+        $prep_stmt = "SELECT id FROM members WHERE username = ? LIMIT 1";
+        $stmt = $mysqli->prepare($prep_stmt);
 
-    if ($stmt) {
-        $stmt->bind_param('s', $username);
-        $stmt->execute();
-        $stmt->store_result();
+        if ($stmt) {
+            $stmt->bind_param('s', $username);
+            $stmt->execute();
+            $stmt->store_result();
 
-        if ($stmt->num_rows == 1) {
-                // A user with this username already exists
-                $error_msg .= '<p class="error">A user with this username already exists</p>';
-                $stmt->close();
+            if ($stmt->num_rows == 1) {
+                    // A user with this username already exists
+                    $error_msg .= '<p class="error">A user with this username already exists</p>';
+                    $stmt->close();
+            } else {
+              $stmt->close();
+            }
         } else {
-          $stmt->close();
+                $error_msg .= '<p class="error">Database error line 55</p>';
+                $stmt->close();
         }
-    } else {
-            $error_msg .= '<p class="error">Database error line 55</p>';
-            $stmt->close();
     }
 
     // TODO:
@@ -110,22 +111,41 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         // Create a random salt
         //$random_salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE)); // Did not work
         $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
-
         // Create salted password
+        $ppp = $password;
         $password = hash('sha512', $password . $random_salt);
         // Insert the new user into the database
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
-            $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('ssssssssi', $username, $email, $password, $random_salt, $first_name, $last_name, $address, $city, $postnr);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
-              echo "fail";
   //              header('Location: ../error.php?err=Registration failure: INSERT');
   				// header('Location: ./no error');
+                echo "INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             }
+            $insert_stmt->close();
         } else {
           echo 'errno: %d, error: %s'. $mysqli->errno, $mysqli->error;
         }
-        header('Location: ../loginView.php');
+        if ($username != 'Guest') {
+            header('Location: /loginView.php');
+        } else {
+            include_once 'functions.php';
+            sec_session_start();
+            // $email = $_POST['username'];
+            // $password = $_POST['p']; // The hashed password.
+            if (login($email, $ppp, $mysqli) == true) {
+                // Login success
+                // echo $_SESSION['username'];
+                if (isset($_POST['red'])) {
+                //     // echo $_SESSION['username'];
+                    header('Location: /'.$_POST['red']);
+                } else {
+                    header('Location: /index.php');
+                }
+            }
+            // header();
+        }
   	} else {
       echo $error_msg;
     }

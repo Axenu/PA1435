@@ -26,7 +26,8 @@ function confirmBooking(element, game_id, date_id, acc_id, user_id, mentor, num)
         num: num},
         type: 'post',
         success: function(output) {
-            console.log(output);
+            // console.log(output);
+            window.location.href = "/bookingView.php?confirm=1";
     	}
 	});
 }

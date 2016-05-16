@@ -14,18 +14,22 @@ if ($stmt = $mysqli->prepare("SELECT machine_id FROM game_machines WHERE game_id
 $stmt->close();
 $machine_id = -1;
 $ma = array();
-if ($stmt = $mysqli->prepare("SELECT machine_id FROM accessories_machines WHERE accessory_id = ? ")) {
-    $stmt->bind_param('i', $_POST['acc_id']);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($id);
-    while ($stmt->fetch()) {
-        if (array_key_exists($id, $machines)) {
-            $ma[$id] = 1;
+if ($_POST['acc_id'] == -1) {
+    $ma = $machines;
+} else {
+    if ($stmt = $mysqli->prepare("SELECT machine_id FROM accessories_machines WHERE accessory_id = ? ")) {
+        $stmt->bind_param('i', $_POST['acc_id']);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($id);
+        while ($stmt->fetch()) {
+            if (array_key_exists($id, $machines)) {
+                $ma[$id] = 1;
+            }
         }
     }
+    $stmt->close();
 }
-$stmt->close();
 if ($stmt = $mysqli->prepare("SELECT machine_id FROM bookings WHERE time_id = ? ")) {
     $stmt->bind_param('i', $_POST['date_id']);
     $stmt->execute();
@@ -42,7 +46,6 @@ $stmt->close();
 foreach ($ma as $key => $m) {
     if ($m == 1) {
         $machine_id = $key;
-        echo "error md";
         break;
     }
 }
