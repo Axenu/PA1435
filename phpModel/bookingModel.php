@@ -54,11 +54,19 @@ if ($machine_id == -1) {
     echo "error, can't book";
     exit();
 }
-
-if ($stmt = $mysqli->prepare("INSERT INTO bookings (user_id, time_id, machine_id, game_id, acc_id, mentor, num_players) VALUES( ? , ? , ? , ? , ? , ? , ? ) ")) {
-    $mentor = TRUE;
-    $num = 1;
-    $stmt->bind_param('iiiiibi', $_POST['user_id'], $_POST['date_id'], $machine_id, $_POST['game_id'], $_POST['acc_id'], $mentor, $num);
-    $stmt->execute();
+$mentor = $_POST['mentor'];
+$num = $_POST['num'];
+for ($i = 0; $i < $num; $i++) {
+    if ($stmt = $mysqli->prepare("INSERT INTO bookings (user_id, time_id, machine_id, game_id, acc_id, mentor) VALUES( ? , ? , ? , ? , ? , ? ) ")) {
+        $stmt->bind_param('iiiiii', $_POST['user_id'], $_POST['date_id'], $machine_id, $_POST['game_id'], $_POST['acc_id'], $mentor);
+        $stmt->execute();
+    }
+    $ma[$machine_id] = 0;
+    foreach ($ma as $key => $m) {
+        if ($m == 1) {
+            $machine_id = $key;
+            break;
+        }
+    }
 }
  ?>
