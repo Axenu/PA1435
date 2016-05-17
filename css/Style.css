@@ -169,10 +169,21 @@ div.gameSmall{
   margin: 5px;
   width: auto;
   height: auto;
-  float:left;
 }
 
 div.gameSmall:hover{
+  background-color: grey;
+}
+
+div.gameSmall_left{
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+  height: auto;
+  float:left;
+}
+
+div.gameSmall_left:hover{
   background-color: grey;
 }
 
