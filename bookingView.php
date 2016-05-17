@@ -129,7 +129,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
             $query = "SELECT picture, title FROM games WHERE game_id=".$key;
             if ($result = $mysqli->query($query)) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<div onclick=\"checkAvailabilityGame(this, '".$key."', '".$_GET['date']."', '".$_GET['num']."')\" class='gameSmall'><img src='".$row['picture']."'><p class='gameTitle'>".$row['title']."</p></div>";
+                    echo "<div onclick=\"checkAvailabilityGame(this, '".$key."', '".$_GET['date']."', '".$_GET['num']."')\" class='gameSmall'><h3 class='gameTitle'>".$row['title']."</h3><img class='gamepic_menu' src='".$row['picture']."'></div>";
                 }
             } else {
                 echo $query;
@@ -139,7 +139,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
 } else if (isset($_GET['date']) && isset($_GET['num']) && isset($_GET['game']) && !isset($_GET['acc'])) {
 
     // accessories
-    echo "<h3>Select accessories</h3>";
+    echo "<h3 class='center'>Select accessories</h3>";
 
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     if ($stmt = $mysqli->prepare("SELECT machine_id FROM game_machines WHERE game_id= ? ")) {
@@ -187,14 +187,14 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
             }
         }
     }
-
+echo "<div id='g'>Want a mentor?<input type='checkbox' class='selectMentor' value='mentor'></div>";
     foreach ($acc as $key => $i) {
         if ($i >= $_GET['num']) {
             $query = "SELECT picture, name FROM accessories WHERE id=".$key;
             $found = 1;
             if ($result = $mysqli->query($query)) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<div onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$key."', '".$_GET['num']."')\" class='gameSmall'><img src='".$row['picture']."'><p class='gameTitle'>".$row['name']."</p></div>";
+                    echo "<div id='g' onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$key."', '".$_GET['num']."')\" class='gameSmall'><img src='".$row['picture']."'><p class='gameTitle'>".$row['name']."</p></div>";
                 }
             } else {
                 echo $query;
@@ -205,8 +205,8 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
     if ($found == 0) {
         echo "<p>There are no available accessories at this time</p>";
     }
-    echo "<p onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '-1', '".$_GET['num']."')\">Next</p>";
-    echo "<p>Want a mentor?</p><input type='checkbox' class='selectMentor' value='mentor'>";
+    echo "<p class='center' onclick=\"prepareBooking(this, '".$_GET['game']."', '".$_GET['date']."', '-1', '".$_GET['num']."')\">No accessory</p>";
+
 } else if (isset($_GET['date']) && isset($_GET['num']) && isset($_GET['game']) && isset($_GET['acc'])) {
     if (login_check($mysqli) == true) {
     echo "<h3>Confirm</h3>";
@@ -247,7 +247,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
         if ($_GET['mentor'] == 'true') {
             echo "<p>With mentor</p>";
         }
-        echo "<p onclick=\"confirmBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$_GET['acc']."', '".$_SESSION['user_id']."', '".$_GET['mentor']."', '".$_GET['num']."')\">Confirm</p>";
+        echo "<p id='g' onclick=\"confirmBooking(this, '".$_GET['game']."', '".$_GET['date']."', '".$_GET['acc']."', '".$_SESSION['user_id']."', '".$_GET['mentor']."', '".$_GET['num']."');\">Confirm</p>";
     } else {
     echo "<h3>Login</h3>";
     $ur = "bookingView.php?date=".$_GET['date']."&game=".$_GET['game']."&num=".$_GET['num']."&acc=".$_GET['acc'];

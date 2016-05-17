@@ -30,11 +30,9 @@ include_once 'header.php';
       if (($result = $mysqli->query("SELECT * FROM `reviews_house` LIMIT 5"))) {
         while($obj = $result->fetch_object()) {
           echo "<div id='review'>\n";
-          echo "<div class='review'>\n";
           echo "<h3 class='reviewTitle'>".$obj->title."</h3>\n";
           echo "<p class='reviewRating'> Rating: ".$obj->rating."/5\n";
           echo "<p class='reviewContent'>".$obj->content."</p>\n";
-          echo "</div>\n";
           echo "</div>\n";
         }
       } else {

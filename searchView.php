@@ -22,7 +22,7 @@ if (isset($_GET['query'])) {
         $stmt->execute();
         $stmt->bind_result($title, $picture);
         while ($stmt->fetch()) {
-            echo "<div onclick=\"SelectGame('".$title."')\" class='gameSmall'><h3>".$title."</h3><img class='gamepic' src='".$picture."'></div>";
+            echo "<div onclick=\"SelectGame('".$title."')\" class='gameSmall'><h3>".$title."</h3><img class='gamepic_menu' src='".$picture."'>";
         }
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
@@ -67,12 +67,14 @@ if (isset($_GET['query'])) {
   }
   $stmt->close();
   ?>
+  <div id="WriteReview">
   <form action="phpModel/writeReview.php" method="post" name="login_form">
-  <h3>Write Review</h3>
+
+    <h3>Write Review</h3>
          <p>Title: </p>
         <input type="text" name="title" placeholder="Title" autocomplete="title" id="title"/>
         <p>Content: </p>
-        <input type="text" name="content" id="content" placeholder="Content" autocomplete="content"/>
+        <textarea type="text" rows="5" name="content" id="content" placeholder="Content" autocomplete="content"></textarea>
                 <p>Rating (0-5): </p>
          <input type="text" name="rating" id="rating" placeholder="Rating" autocomplete="rating"/>
          <input type='hidden' name='game_id' value='<?php echo $game_id; ?>'/>
@@ -82,6 +84,7 @@ if (isset($_GET['query'])) {
          '/>
          <input type="submit" value="Login" class="submit"/>
      </form>
+   </div>
      <?php
   include_once 'footer.php';
 }

@@ -3,24 +3,24 @@ include_once 'header.php';
 ?>
    <script src="js/userModel.js"></script>
    <script src="js/bookingModel.js"></script>
-
-        <a href='userView.php'>User info</a>
-        <a href='bookingHistory.php'>Booking history</a>
+<p class="center">
+        <a href='userView.php'>User info</a> |
+        <a href='bookingHistory.php'>Booking history</a> |
         <?php
         if ($_SESSION['permission'] > 0) {
         ?>
 
-        <a href='editGamesView.php'>Handle Games</a>
+        <a href='editGamesView.php'>Handle Games</a> |
 
         <?php
         }
         if ($_SESSION['permission'] > 1) {
         ?>
 
-        <a href='createAdministratorView.php'>Handle Users</a>
-        <a href='generateReport.php'>Get statistics</a>
-        <a href='sendNewsLetter'>Send Newsletter</a>
-
+        <a href='createAdministratorView.php'>Handle Users</a> |
+        <a href='generateReport.php'>Get statistics</a> |
+        <a href='sendNewsLetter'>Send Newsletter</a> | 
+</p>
         <?php } ?>
 
         <p>Active bookings:</p>

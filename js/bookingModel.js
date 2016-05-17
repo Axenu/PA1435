@@ -19,6 +19,7 @@ function prepareBooking(element, game_id, date_id, acc_id, num) {
 }
 
 function confirmBooking(element, game_id, date_id, acc_id, user_id, men, num) {
+    console.log('test');
     var mentor = 0;
     if (men == 'true') {
         mentor = 1;
@@ -33,7 +34,7 @@ function confirmBooking(element, game_id, date_id, acc_id, user_id, men, num) {
         num: num},
         type: 'post',
         success: function(output) {
-            // console.log(output);
+            console.log(output);
             window.location.href = "/bookingView.php?confirm=1";
     	}
 	});
