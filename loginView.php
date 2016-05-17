@@ -19,6 +19,7 @@ include_once 'header.php';
         <h6><center>If you don't have a login, please <a href='registerView.php'>register</a></center></h6>
 
       </div>
+
   </center>
   <?php
   include_once 'footer.php';

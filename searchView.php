@@ -21,7 +21,7 @@ if (isset($_GET['query'])) {
         $stmt->execute();
         $stmt->bind_result($title, $picture);
         while ($stmt->fetch()) {
-            echo "<div onclick='SelectGame(this)' class='gameSmall'><h3>".$title."</h3><img src='".$picture."'></div>";
+            echo "<div onclick='SelectGame(this)' class='gameSmall'><h3>".$title."</h3><img src='".$picture."'>";
         }
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
