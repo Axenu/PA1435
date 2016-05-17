@@ -22,3 +22,7 @@ function showResults(senderObj) {
     var query = $(senderObj).text();
     window.location.href = "/searchView.php?gameS="+query;
 }
+
+function SelectGame(game) {
+    window.location.href = "/searchView.php?gameS="+game;
+}
