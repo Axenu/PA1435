@@ -43,8 +43,19 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
             $days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
             for ($i = 0; $i < $days; $i++) {
                 for ($j = 0; $j < 24; $j++) {
-                    
-                    $query = "INSERT INTO `prices` (month, day, hour, price, year, sum) VALUES (".$month.", ".($i+1).", ".($j+1).", 100, ".$year.", ".$year.$month.($i+1).($j+1).")";
+                    $monthQ = "".$month;
+                    if ($month < 10) {
+                        $monthQ = "0".$month;
+                    }
+                    $dayQ = "".($i+1);
+                    if (($i+1) < 10) {
+                        $dayQ = "0".($i+1);
+                    }
+                    $hourQ = "".($j+1);
+                    if (($j+1) < 10) {
+                        $hourQ = "0".($j+1);
+                    }
+                    $query = "INSERT INTO `prices` (month, day, hour, price, year, sum) VALUES (".$month.", ".($i+1).", ".($j+1).", 100, ".$year.", ".$year.$monthQ.$dayQ.$hourQ.")";
                     if ($result = $mysqli->query($query)) {
                     } else {
                         echo $query;

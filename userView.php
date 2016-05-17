@@ -18,7 +18,7 @@ include_once 'header.php';
         ?>
 
         <a href='createAdministratorView.php'>Handle Users</a> |
-        <a href='generateReport.php'>Get statistics</a> |
+        <a href='getStatisticsView.php'>Get statistics</a> |
         <a href='sendNewsletterView.php'>Send Newsletter</a> |
 
         <?php } ?>

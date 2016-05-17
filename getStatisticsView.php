@@ -27,21 +27,22 @@ include_once 'header.php';
         ?>
         </p>
         <form id='form1'>
-            <p>start at</p>
+            <p>Start at</p>
             <input type='text' class='py' placeholder='year' value='<?php echo date('Y'); ?>'/>
             <input type='text' class='pm'  placeholder='month' value='<?php echo date('n')-1; ?>'/>
             <input type='text' class='pd'  placeholder='date' value='<?php echo date('j'); ?>'/>
             <input type='text' class='ph'  placeholder='hour' value='<?php echo date('G'); ?>'/>
-            <p>end at</p>
+            <p>End at</p>
             <input type='text' class='ny'  placeholder='year' value='<?php echo date('Y'); ?>'/>
             <input type='text' class='nm'  placeholder='month' value='<?php echo date('n'); ?>'/>
             <input type='text' class='nd'  placeholder='date' value='<?php echo date('j'); ?>'/>
             <input type='text' class='nh'  placeholder='hour' value='<?php echo date('G'); ?>'/>
         </form>
 
-        <p onclick='calculateTotal()'>Calculate total income</p>
-
-        <p class='result1'></p>
+        <p onclick='calculateTotal()'>Calculate</p>
+        <div class='result12'></div>
+        <input type='text' class='user_name' placeholder='Username'/><p onclick='userReport()'>Get userReport</p>
+        <div class='result3'></div>
 
 <?php
 include_once 'footer.php';
