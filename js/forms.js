@@ -54,7 +54,7 @@ function updateFormHash(form, uid, email, password, conf) {
             password.focus();
             return false;
         }
-        
+
         if (password.value != conf.value) {
             enterErrorText('Your password and confirmation do not match. Please try again');
             form.password.focus();
@@ -87,7 +87,6 @@ function updateFormHash(form, uid, email, password, conf) {
     // Make sure the plaintext password doesn't get sent.
     password.value = "";
     conf.value = "";
-    console.log("test");
     // Finally submit the form.
     form.submit();
     return true;

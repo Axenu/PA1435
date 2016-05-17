@@ -2,6 +2,7 @@
 include_once 'header.php';
 ?>
    <script src="js/createAdministratorModel.js"></script>
+      <script src="js/userModel.js"></script>
 
 
         <a href='userView.php'>User info</a>
@@ -26,11 +27,11 @@ include_once 'header.php';
         <h3>Users:</h3>
 
         <?php
-            if ($stmt = $mysqli->prepare("SELECT username FROM members WHERE username <> 'Guest' LIMIT 50")) {
+            if ($stmt = $mysqli->prepare("SELECT username, id FROM members WHERE username <> 'Guest' LIMIT 50")) {
                 $stmt->execute();
-                $stmt->bind_result($username);
+                $stmt->bind_result($username, $user_id);
                 while ($stmt->fetch()) {
-                    echo "<p>".$username."</p>";
+                    echo "<p onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
                 }
             } else {
                 echo $mysqli->error;
