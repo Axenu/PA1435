@@ -13,7 +13,8 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
    <script src="js/jquery.js"></script>
    <script src="js/forms.js"></script>
    <script src="js/sha512.js"></script>
-   <script src="js/userModel.js"></script>
+   <!-- <script src="js/userModel.js"></script> -->
+   <script src="js/editGamesModel.js"></script>
    <?php include_once 'searchView.php';
    getSeachInclude(); ?>
    <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
@@ -59,18 +60,20 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
         <?php
 
-            if ($stmt = $mysqli->prepare("SELECT title, picture FROM games WHERE title LIKE ?")) {
+            if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games WHERE title LIKE ?")) {
                 $query = $_GET['query']."%";
                 $stmt->bind_param('s', $query);
                 $stmt->execute();
-                $stmt->bind_result($title, $picture);
+                $stmt->bind_result($title, $picture, $game_id, $description);
                 while ($stmt->fetch()) {
-                    echo "<div class='gameSmall'><img src='".$picture."'><p>".$title."</p></div>";
+                    echo "<div onclick='SelectGame(this)' class='gameSmall' id='".$game_id."'><h3>".$title."</h3><img src='".$picture."'><p class='hidden'>".$description."<p></div>";
                 }
             } else {
             }
         ?>
-
+        <p onclick='displayAddGameForm();'>Add Game</p>
+        <p onclick='deleteSelected();'>Remove Game</p>
+        <p onclick='displayEditGameForm();'>Edit Game</p>
 
 
    </div>
