@@ -18,7 +18,7 @@ if (isset($_GET['query'])) {
     echo "<?php include_once 'searchView.php';";
     echo "getSeachInclude(); ?>";
     echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>";
-    echo "<title>Game house Lannister</title>";
+    echo "<title>Search Result</title>";
     echo"</head>";
     echo"<body>";
     echo"<div id='header'>";
@@ -43,8 +43,6 @@ if (isset($_GET['query'])) {
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
     }
-    echo"<p>Info text</p>";
-    echo"<a href='bookingView.php'>book</a>";
     echo"</div>";
 
     echo"<div id='footer'><p><center>";
