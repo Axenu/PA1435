@@ -40,10 +40,11 @@ body {
   border-style: solid;
   border-width: 3px;
   border-color:black;
-  border-bottom: 0px;
   border-radius: 25px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+}
+
+#contain.center{
+  text-align: center;
 }
 
 #gamedesc{
@@ -80,15 +81,17 @@ body {
 
 #footer {
   width: 100.4%;
-  bottom: -15px;
+  height: 40px;
+  bottom: 0px;
   margin: auto;
   margin-bottom: 0px;
+  padding-top: -5px;
   background-color: grey;
-  position: relative;
   z-index:9;
   color: black;
   padding-left: 10px;
   left: -10px;
+  position: fixed;
 }
 
 p {
@@ -99,6 +102,11 @@ p {
  color: #000000;
  text-align:justify;
  margin:15px;
+}
+
+p.footer{
+   margin:0px;
+   text-align: center;
 }
 
 h1{

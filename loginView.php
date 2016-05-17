@@ -32,8 +32,7 @@ sec_session_start();
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
         <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
     </div>
-  <div id="contain">
-    <center>
+  <div id="contain" class="center">
       <?php
           if (isset($_GET['error'])) {
               echo '<p class="error">Error Logging In!</p>';
@@ -51,7 +50,6 @@ sec_session_start();
         <h6><center>If you don't have a login, please <a href='registerView.php'>register</a></center></h6>
 
       </div>
-  </center>
   </div>
 
   <div id="footer"><p><center>
