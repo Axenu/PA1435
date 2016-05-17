@@ -47,15 +47,13 @@ if (isset($_GET['query'])) {
   <div id="contain">
 <?php
 
-    $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
-
     if ($stmt = $mysqli->prepare("SELECT title, picture FROM games WHERE title LIKE ? LIMIT 5")) {
         $query = $_GET['query']."%";
         $stmt->bind_param('s', $query);
         $stmt->execute();
         $stmt->bind_result($title, $picture);
         while ($stmt->fetch()) {
-            echo "<div class='gameSmall'>".$picture.", ".$title."</div>";
+            echo "<div class='gameSmall'><img src='".$picture."'><p>".$title."</p></div>";
         }
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";

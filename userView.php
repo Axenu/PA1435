@@ -36,7 +36,25 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     </div>
 
     <div id="contain">
+
+        <a href='userView.php'>User info</a>
         <a href='bookingHistory.php'>Booking history</a>
+        <?php
+        if ($_SESSION['permission'] > 0) {
+        ?>
+
+        <a href='editGamesView.php'>Handle Games</a>
+
+        <?php
+        }
+        if ($_SESSION['permission'] > 1) {
+        ?>
+
+        <a href='handleUsers.php'>Handle Users</a>
+        <a href='generateReport.php'>Get statistics</a>
+        <a href='sendNewsLetter'>Send Newsletter</a>
+
+        <?php } ?>
 
         <form action="phpModel/updateUserModel.php" method="post" name="registration_form">
             <p>Username: </p><input type='text' name='username' id='username' placeholder="Username" value="<?php echo htmlentities($_SESSION['username']); ?>"/>

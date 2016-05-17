@@ -10,3 +10,7 @@ function removeAccount(user_id) {
         });
     }
 }
+
+function recoverPassword() {
+    window.location.href = "/forgotPasswordView.php?done=true";
+}

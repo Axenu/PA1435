@@ -28,7 +28,7 @@ function sec_session_start() {
 
 function login($email, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible.
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt
+    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, permissions
         FROM members
        WHERE email = ?
         LIMIT 1")) {
@@ -37,7 +37,7 @@ function login($email, $password, $mysqli) {
         $stmt->store_result();
 
         // get variables from result.
-        $stmt->bind_result($user_id, $username, $db_password, $salt);
+        $stmt->bind_result($user_id, $username, $db_password, $salt, $permissions);
         $stmt->fetch();
 
         // hash the password with the unique salt.
@@ -66,6 +66,7 @@ function login($email, $password, $mysqli) {
                                                                 "",
                                                                 $username);
                     $_SESSION['username'] = $username;
+                    $_SESSION['permission'] = $permissions;
                     $_SESSION['login_string'] = hash('sha512',
                               $password . $user_browser);
                     // Login successful.
