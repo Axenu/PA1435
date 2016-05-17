@@ -22,10 +22,10 @@ include_once 'header.php';
 
         <a href='createAdministratorView.php'>Handle Users</a> |
         <a href='generateReport.php'>Get statistics</a> |
-        <a href='sendNewsLetter'>Send Newsletter</a>
-</p>
-        <?php } ?>
+        <a href='sendNewsletterView.php'>Send Newsletter</a>
 
+        <?php } ?>
+</p>
         <h3>Users:</h3>
 
         <?php
@@ -33,15 +33,17 @@ include_once 'header.php';
                 $stmt->execute();
                 $stmt->bind_result($username, $user_id);
                 while ($stmt->fetch()) {
-                    echo "<p onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
+                    echo "<p class='userclass' onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
                 }
             } else {
                 echo $mysqli->error;
             }
         ?>
-        <p onclick='displayAddUserForm();'>Add User</p>
-        <p onclick='deleteSelected();'>Remove User</p>
-        <p onclick='displayEditUserForm();'>Edit User</p>
+        <div id="useroptions">
+          <p class="hover" onclick='displayAddUserForm();'>Add User</p>
+          <p class="hover" onclick='deleteSelected();'>Remove User</p>
+          <p class="hover" onclick='displayEditUserForm();'>Edit User</p>
+        </div>
 
 
         <?php

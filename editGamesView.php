@@ -20,10 +20,10 @@ include_once 'header.php';
 
         <a href='createAdministratorView.php'>Handle Users</a> |
         <a href='generateReport.php'>Get statistics</a> |
-        <a href='sendNewsLetter'>Send Newsletter</a>
-</p>
-        <?php } ?>
+        <a href='sendNewsletterView.php'>Send Newsletter</a>
 
+        <?php } ?>
+</p>
 
         <?php
             if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games")) {
@@ -39,7 +39,7 @@ include_once 'header.php';
           <p class="hover" onclick='displayAddGameForm();'>Add Game</p>
           <p class="hover" onclick='deleteSelected();'>Remove Game</p>
           <p class="hover" onclick='displayEditGameForm();'>Edit Game</p>
-      </div>
+        </div>
 
 
         <?php

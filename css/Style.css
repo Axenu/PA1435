@@ -149,9 +149,39 @@ p.hidden{
   width: 0px;
 }
 
+p.userclass{
+  padding: 3px;
+  margin: 0px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  cursor: pointer;
+  float: left;
+}
+
+p.userclass:hover{
+  background-color: gray;
+}
+
 div.gameSmall{
-  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+  height: auto;
   float:left;
+}
+
+div.gameSmall:hover{
+  background-color: grey;
+}
+
+div.selectedGame{
+  background-color: gray;
+}
+
+p.selectedUser{
+  background-color: gray;
 }
 
 #g{
@@ -171,6 +201,15 @@ div.gameSmall{
   margin: auto;
   width: 135px;
   margin-top: 200px;
+}
+
+
+#useroptions{
+  text-align: center;
+  position: relative;
+  margin: auto;
+  width: 135px;
+  margin-top: 100px;
 }
 
 h1{
@@ -221,13 +260,15 @@ h6{
 }
 
 #LoginField{
-  width: 90px;
+  width: auto;
   height: 20px;
   top: 0px;
   right: 0px;
   position: absolute;
   background-color: lightgrey;
   color: white;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 a{
@@ -382,8 +423,4 @@ div.day:hover{
     height: 349px;
     position: absolute;
     overflow: scroll;
-}
-
-#Mentor{
-
 }
