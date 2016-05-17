@@ -30,7 +30,7 @@ include_once 'header.php';
                 $stmt->execute();
                 $stmt->bind_result($title, $picture, $game_id, $description);
                 while ($stmt->fetch()) {
-                    echo "<div onclick='SelectGame(this)' class='gameSmall' id='".$game_id."'><h3>".$title."</h3><img class='gamepic_menu_small' src='".$picture."'><p class='hidden'>".$description."</p></div>";
+                    echo "<div onclick='SelectGame(this)' class='gameSmall_left' id='".$game_id."'><h3>".$title."</h3><img class='gamepic_menu_small' src='".$picture."'><p class='hidden'>".$description."</p></div>";
                 }
             } else {
             }

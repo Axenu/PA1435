@@ -1,12 +1,13 @@
 <?php
 
 $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
-
 if (isset($_POST['action'])) {
     if ($_POST['action'] == 'add') {
         $title = $_POST['title'];
         $description= $_POST['description'];
 
+        echo $_POST['title'];
+        echo $_POST['description'];
         $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
