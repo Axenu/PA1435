@@ -4,7 +4,7 @@
 html {
   font-family: 11px arial,tahoma,verdana, helvetica, sans-serif;
   color: red;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-color: #000;
   background-image: url("../images/background/bg.jpg");
   background-size: 100%;

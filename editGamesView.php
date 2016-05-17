@@ -60,9 +60,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
         <?php
 
-            if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games WHERE title LIKE ?")) {
-                $query = $_GET['query']."%";
-                $stmt->bind_param('s', $query);
+            if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games")) {
                 $stmt->execute();
                 $stmt->bind_result($title, $picture, $game_id, $description);
                 while ($stmt->fetch()) {
