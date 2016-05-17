@@ -24,15 +24,29 @@ include_once 'header.php';
 
         <?php } ?>
 </p>
+<input class='searchBarGame' type='text' name='search' placeholder='Search' onkeyup='searchQueryChanged(event)'>
 
         <?php
-            if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games")) {
-                $stmt->execute();
-                $stmt->bind_result($title, $picture, $game_id, $description);
-                while ($stmt->fetch()) {
-                    echo "<div onclick='SelectGame(this)' class='gameSmall_left' id='".$game_id."'><h3>".$title."</h3><img class='gamepic_menu_small' src='".$picture."'><p class='hidden'>".$description."</p></div>";
+            if (isset($_GET['queryG'])) {
+                if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games WHERE title LIKE ?")) {
+                    $query = $_GET['queryG']."%";
+                    $stmt->bind_param('s', $query);
+                    $stmt->execute();
+                    $stmt->bind_result($title, $picture, $game_id, $description);
+                    while ($stmt->fetch()) {
+                        echo "<div onclick='SelectGame(this)' class='gameSmall_left' id='".$game_id."'><h3>".$title."</h3><img class='gamepic_menu_small' src='".$picture."'><p class='hidden'>".$description."</p></div>";
+                    }
+                } else {
                 }
             } else {
+                if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games")) {
+                    $stmt->execute();
+                    $stmt->bind_result($title, $picture, $game_id, $description);
+                    while ($stmt->fetch()) {
+                        echo "<div onclick='SelectGame(this)' class='gameSmall_left' id='".$game_id."'><h3>".$title."</h3><img class='gamepic_menu_small' src='".$picture."'><p class='hidden'>".$description."</p></div>";
+                    }
+                } else {
+                }
             }
         ?>
         <div id="options">

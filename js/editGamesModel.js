@@ -57,3 +57,23 @@ function deleteSelected() {
 function cancel() {
     $('.gameForm').remove();
 }
+
+function searchQueryChanged(e) {
+        if (e.keyCode == 13) {
+            var query = $('.searchBarGame').val()
+            window.location.href = "/editGamesView.php?queryG="+query;
+            return;
+        }
+        // if ($('.searchBar').val() != '') {
+        //     $.ajax({ url: '/phpModel/searchModel.php',
+        //         data: {action: 'search',
+        //                query: $('.searchBar').val()},
+        //         type: 'post',
+        //         success: function(output) {
+        //             // $('.searchResulContainer').html(output);
+        //         }
+        //     });
+        // }
+            // $('.searchResulContainer').html("");
+        // }
+}

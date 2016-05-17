@@ -26,17 +26,33 @@ include_once 'header.php';
 
         <?php } ?>
 </p>
+
+        <input class='searchBarUser' type='text' name='search' placeholder='Search' onkeyup='searchQueryChangedUser(event)'>
         <h3>Users:</h3>
 
         <?php
-            if ($stmt = $mysqli->prepare("SELECT username, id FROM members WHERE username <> 'Guest' LIMIT 50")) {
-                $stmt->execute();
-                $stmt->bind_result($username, $user_id);
-                while ($stmt->fetch()) {
-                    echo "<p class='userclass' onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
+            if (isset($_GET['queryU'])) {
+                if ($stmt = $mysqli->prepare("SELECT username, id FROM members WHERE username <> 'Guest' AND username LIKE ? LIMIT 50")) {
+                    $query = $_GET['queryU']."%";
+                    $stmt->bind_param('s', $query);
+                    $stmt->execute();
+                    $stmt->bind_result($username, $user_id);
+                    while ($stmt->fetch()) {
+                        echo "<p class='userclass' onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
+                    }
+                } else {
+                    echo $mysqli->error;
                 }
             } else {
-                echo $mysqli->error;
+                if ($stmt = $mysqli->prepare("SELECT username, id FROM members WHERE username <> 'Guest' LIMIT 50")) {
+                    $stmt->execute();
+                    $stmt->bind_result($username, $user_id);
+                    while ($stmt->fetch()) {
+                        echo "<p class='userclass' onclick='SelectUser(this);' id=".$user_id.">".$username."</p>";
+                    }
+                } else {
+                    echo $mysqli->error;
+                }
             }
         ?>
         <div id="useroptions">

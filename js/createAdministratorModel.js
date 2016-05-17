@@ -86,3 +86,11 @@ function deleteSelected() {
 function cancel() {
     $('.gameForm').remove();
 }
+
+function searchQueryChangedUser(e) {
+    if (e.keyCode == 13) {
+        var query = $('.searchBarUser').val()
+        window.location.href = "/createAdministratorView.php?queryU="+query;
+        return;
+    }
+}
