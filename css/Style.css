@@ -108,6 +108,17 @@ img.gamepic_menu{
   cursor: pointer;
 }
 
+img.gamepic_menu_small{
+  background-size: 100%;
+  width:115px;
+  height:60px;
+  background-color: yellow;
+  position: relative;;
+  left: 0px;
+  bottom: 0px;
+  cursor: pointer;
+}
+
 p {
  font-family: arial,verdana, helvetica, sans-serif;
  font-size: 15px;
@@ -128,6 +139,21 @@ p.footer{
    text-align: center;
 }
 
+p.hover{
+  cursor: pointer;
+}
+
+p.hidden{
+  overflow: hidden;
+  height:0px;
+  width: 0px;
+}
+
+div.gameSmall{
+  width: 200px;
+  float:left;
+}
+
 #g{
   font-family: arial,verdana, helvetica, sans-serif;
   color: #000000;
@@ -137,6 +163,14 @@ p.footer{
   text-align: center;
   margin:auto;
   cursor: pointer;
+}
+
+#options{
+  text-align: center;
+  position: relative;
+  margin: auto;
+  width: 135px;
+  margin-top: 200px;
 }
 
 h1{
