@@ -1,39 +1,8 @@
 <?php
-include_once 'phpModel/functions.php';
-sec_session_start();
-$mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
- ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<link rel='stylesheet' href='css/Style.css' type='text/css'/>
+include_once 'header.php';
+?>
 <script src='js/bookingModel.js'></script>
-<script src='js/forms.js'></script>
-<script src='js/sha512.js'></script>
-<script src='js/jquery.js'></script>
-<?php include_once 'searchView.php';
-getSeachInclude(); ?>
-<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-<title>Game house book</title>
-</head>
-<body>
-<div id='header'>
-  <div id="LoginField">
-    <?php
-    if (login_check($mysqli) == true) {
-        ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><a href='phpModel/logout.php'>logg out</a><?php
-    } else {
-        ?><a href="loginView.php"><center>Login</a><?php
-    }
 
-     ?>
-   </div>
-<a href="index.php"><div id="logo"></div></a>
-<div id='SearchField'><center><?php getSearchView(); ?></center></div>
-</div>
-
-<div id='contain'>
 <?php
 if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) {
     echo "<div id='SelectDate'><h3>Select date:</h3>";
@@ -320,12 +289,5 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
 
     <?php
 }
-
+ include_once 'footer.php';
  ?>
-
-</div>
-</div>
-<div id='footer'><p><center>Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-</div>
-</body>
-</html>

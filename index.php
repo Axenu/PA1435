@@ -40,8 +40,5 @@ include_once 'header.php';
       } else {
         echo "SELECT * FROM `reviews_house` LIMIT 5";
       }
-    ?>
-
-    <?php
-    include_once 'footer.php';
-    ?>
+include_once 'footer.php';
+?>
