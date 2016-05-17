@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
 ?>
-   <script src="js/editGamesModel.js"></script>
+   <script src="js/createAdministratorModel.js"></script>
 
 
         <a href='userView.php'>User info</a>
@@ -23,21 +23,22 @@ include_once 'header.php';
 
         <?php } ?>
 
+        <h3>Users:</h3>
 
         <?php
-
-            if ($stmt = $mysqli->prepare("SELECT username FROM members WHERE LIMIT 50")) {
+            if ($stmt = $mysqli->prepare("SELECT username FROM members WHERE username <> 'Guest' LIMIT 50")) {
                 $stmt->execute();
                 $stmt->bind_result($username);
                 while ($stmt->fetch()) {
                     echo "<p>".$username."</p>";
                 }
             } else {
+                echo $mysqli->error;
             }
         ?>
-        <p onclick='displayAddGameForm();'>Add Game</p>
-        <p onclick='deleteSelected();'>Remove Game</p>
-        <p onclick='displayEditGameForm();'>Edit Game</p>
+        <p onclick='displayAddUserForm();'>Add User</p>
+        <p onclick='deleteSelected();'>Remove User</p>
+        <p onclick='displayEditUserForm();'>Edit User</p>
 
 
         <?php
