@@ -97,6 +97,17 @@ img.gamepic{
   bottom: 150px;
 }
 
+img.gamepic_menu{
+  background-size: 100%;
+  width:400px;
+  height:200px;
+  background-color: yellow;
+  position: relative;;
+  left: 0px;
+  bottom: 0px;
+  cursor: pointer;
+}
+
 p {
  font-family: arial,verdana, helvetica, sans-serif;
  font-size: 15px;
@@ -107,9 +118,25 @@ p {
  margin:15px;
 }
 
+p.center{
+  text-align: center;
+  cursor: pointer;
+}
+
 p.footer{
    margin:0px;
    text-align: center;
+}
+
+#g{
+  font-family: arial,verdana, helvetica, sans-serif;
+  color: #000000;
+  margin: 2px;
+  position: relative;
+  width: 137px;
+  text-align: center;
+  margin:auto;
+  cursor: pointer;
 }
 
 h1{
@@ -136,6 +163,10 @@ h3{
   font-family: verdana;
   font-size: 100%;
   color: black;
+}
+
+h3.center{
+  text-align: center;
 }
 
 h6{
@@ -181,7 +212,6 @@ a:hover{
   position: relative;
   background-color: gray;
   margin-top: 20px;
-
   border-style: solid;
   border-width: 3px;
   border-color:black;
@@ -190,6 +220,35 @@ a:hover{
 }
 
 #review{
+  border-style: solid;
+  border-width: 2px;
+  border-color:black;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888;
+}
+
+#WriteReview{
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 500px;
+  position: relative;
+  bottom: 120px;
+  border-width: 3px;
+  border-style: solid;
+  border-color:black;
+  border-radius: 25px;
+}
+
+#content{
+  width: 477px;
+  height: 200px;
+}
+
+div.review{
+  position: relative;
+  bottom: 160px;
   border-style: solid;
   border-width: 2px;
   border-color:black;
@@ -289,4 +348,8 @@ div.day:hover{
     height: 349px;
     position: absolute;
     overflow: scroll;
+}
+
+#Mentor{
+
 }
