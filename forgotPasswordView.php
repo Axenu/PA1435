@@ -19,14 +19,15 @@ sec_session_start();
   <body>
 
     <div id="header">
+      <div id="LoginField">
         <?php
         if (login_check($mysqli) == true) {
-            ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><p onlick=''>logg out</p><?php
+          ?><a href='userView.php'><?php echo htmlentities($_SESSION['username']); ?></a><a href='phpModel/logout.php'>logg out</a><?php
         } else {
-            ?><a href="loginView.php"><center>Login</a><?php
+          ?><a href="loginView.php"><center>Login</a><?php
         }
-
-         ?>
+        ?>
+      </div>
         <a href="index.php"><div id="logo"></div></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
         <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>

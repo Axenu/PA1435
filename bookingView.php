@@ -33,12 +33,10 @@ getSeachInclude(); ?>
 <div id='SearchField'><center><?php getSearchView(); ?></center></div>
 </div>
 
-<a href='loginView.php'>Login</a>
-
 <div id='contain'>
 <?php
 if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) {
-    echo "<h3>Select date</h3>";
+    echo "<div id='SelectDate'><h3>Select date:</h3>";
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
     date_default_timezone_set('Europe/Stockholm');
     $month = date('n');
@@ -61,10 +59,11 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
         $pmonth = 12;
         $pyear -= 1;
     }
-    echo "<a href='bookingView.php?month=".$pmonth."&year=".$pyear."'>previous month</a>";
-    echo "<p>".date('F', mktime(0, 0, 0, $month, 10))." ".$year."</p>";
-    echo "<a href='bookingView.php?month=".$nmonth."&year=".$nyear."'>next month</a>";
-    echo "<input type='text' class='numberOfPlayers' placeholder='Number Of Players' value='1'>";
+    echo "<p><div id='filler'> </div><a href='bookingView.php?month=".$pmonth."&year=".$pyear."'> << </a>";
+    echo " ".date('F', mktime(0, 0, 0, $month, 10))." ".$year." ";
+    echo "<a href='bookingView.php?month=".$nmonth."&year=".$nyear."'>  >>  </a></p></div>";
+    echo "<div id='SelectDate' class='number2'><h3>Select number of players:</h3>";
+    echo "<input type='text' class='numberOfPlayers' placeholder='Number Of Players' value='1'></div>";
 
     if ($stmt = $mysqli->prepare("SELECT price FROM prices WHERE (month=".$month." AND year=".$year.")")) {
         $stmt->execute();
@@ -90,6 +89,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
     $stmt->execute();
     $stmt->bind_result($id, $day, $price, $hour);
     $d = 1;
+    echo "<div id='Calendar'>";
     echo "<div class='day'><p>1</p>";
     while ($stmt->fetch()) {
         if ($d == $day) {
@@ -105,6 +105,8 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
             }
         }
     }
+    echo "</div>";
+
 } else if (isset($_GET['date']) && isset($_GET['num']) && !isset($_GET['game'])) {
     echo "<h3>Select game</h3>";
     $macines = array();
