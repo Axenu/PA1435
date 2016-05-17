@@ -71,7 +71,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
         if ($stmt->num_rows < 5) {
             $stmt->close();
             //create data for current month
-            $days = cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'));
+            $days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
             for ($i = 0; $i < $days; $i++) {
                 for ($j = 0; $j < 24; $j++) {
                     $query = "INSERT INTO `prices` (month, day, hour, price, year) VALUES (".$month.", ".($i+1).", ".($j+1).", 100, ".$year.")";
