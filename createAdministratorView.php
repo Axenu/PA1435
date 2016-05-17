@@ -60,11 +60,11 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
         <?php
 
-            if ($stmt = $mysqli->prepare("SELECT title, picture, game_id, description FROM games")) {
+            if ($stmt = $mysqli->prepare("SELECT username FROM members WHERE LIMIT 50")) {
                 $stmt->execute();
-                $stmt->bind_result($title, $picture, $game_id, $description);
+                $stmt->bind_result($username);
                 while ($stmt->fetch()) {
-                    echo "<div onclick='SelectGame(this)' class='gameSmall' id='".$game_id."'><h3>".$title."</h3><img src='".$picture."'><p class='hidden'>".$description."<p></div>";
+                    echo "<p>".$username."</p>";
                 }
             } else {
             }

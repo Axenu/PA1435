@@ -50,7 +50,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
         if ($_SESSION['permission'] > 1) {
         ?>
 
-        <a href='handleUsers.php'>Handle Users</a>
+        <a href='createAdministratorView.php'>Handle Users</a>
         <a href='generateReport.php'>Get statistics</a>
         <a href='sendNewsLetter'>Send Newsletter</a>
 
