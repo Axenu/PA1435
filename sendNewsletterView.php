@@ -29,9 +29,9 @@ include_once 'header.php';
             echo "<p>Newsletter sent!</p>";
         } else {
          ?>
-        <form>
-            <input type='text' placeholder="Title"></input>
-            <textarea placeholder="Content"></textarea>
+        <form class="newsForm">
+            <input class="newsTitle" type='text' placeholder="Title"></input>
+            <textarea class="newsContent" placeholder="Content"></textarea>
             <input type='button' value="Send" onclick='sendNewsletter();'></input>
         </form>
 

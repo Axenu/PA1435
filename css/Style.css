@@ -87,6 +87,23 @@ body {
   position: fixed;
 }
 
+form.newsForm{
+  margin: auto;
+  text-align: center;
+  width: 230px;
+}
+
+input.newsTitle{
+  margin-bottom:10px;
+}
+
+textarea.newsContent{
+  left: 120px;
+  top: 120px;
+  width: 220px;
+  height: 300px;
+}
+
 img.gamepic{
   background-size: 100%;
   width:400px;
@@ -129,6 +146,13 @@ p {
  margin:15px;
 }
 
+p.normal{
+  font-family: arial,verdana, helvetica, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #000000;
+}
+
 p.center{
   text-align: center;
   cursor: pointer;
@@ -162,6 +186,10 @@ p.userclass{
 
 p.userclass:hover{
   background-color: gray;
+}
+
+form.form1{
+  color: black;
 }
 
 div.gameSmall{
@@ -434,4 +462,29 @@ div.day:hover{
     height: 349px;
     position: absolute;
     overflow: scroll;
+}
+
+input.py{
+  width: 40px;
+}
+input.pm{
+  width: 25px;
+}
+input.pd{
+  width: 25px;
+}
+input.ph{
+  width:25px;
+}
+input.ny{
+  width: 40px;
+}
+input.nm{
+  width: 25px;
+}
+input.nd{
+  width: 25px;
+}
+input.nh{
+  width:25px;
 }
