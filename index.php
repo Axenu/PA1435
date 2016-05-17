@@ -2,11 +2,6 @@
 include_once 'phpModel/functions.php';
 sec_session_start();
 $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
-// if (login_check($mysqli) == true) {
-//     echo "logged in";
-// } else {
-//     echo "not logged in";
-// }
 
 ?>
 

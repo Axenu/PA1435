@@ -44,6 +44,7 @@ if (isset($_GET['query'])) {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
     }
     echo"<p>Info text</p>";
+    echo"<a href='bookingView.php'>book</a>";
     echo"</div>";
 
     echo"<div id='footer'><p><center>";
@@ -91,6 +92,7 @@ if (isset($_GET['query'])) {
   }
 
   echo"<div id='gamedescinfo'><p>Info text</p></div>";
+  echo"<a href='bookingView.php'>book</a>";
 
   echo"</div>";
 

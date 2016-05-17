@@ -14,11 +14,11 @@ sec_session_start();
     <title>Game House Login</title>
         <script type="text/JavaScript" src="js/sha512.js"></script>
         <script type="text/JavaScript" src="js/forms.js"></script>
+        <script type="text/JavaScript" src="js/userModel.js"></script>
   </head>
   <body>
 
     <div id="header">
-      <div id="LoginField">
         <?php
         if (login_check($mysqli) == true) {
             ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><p onlick=''>logg out</p><?php
@@ -27,32 +27,23 @@ sec_session_start();
         }
 
          ?>
-       </div>
         <a href="index.php"><div id="logo"></div></a>
         <div id="SearchField"><center><?php getSearchView(); ?></center></div>
         <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
     </div>
-  <div id="contain">
-    <center>
-      <?php
-          if (isset($_GET['error'])) {
-              echo '<p class="error">Error Logging In!</p>';
-          }
-          ?>
-      <form action="phpModel/loginModel.php" method="post" name="login_form">
-        <div id="username_center"><p>Username: </p></div>
-        <input type="text" name="username" placeholder="Username" autocomplete="username" id="username"/>
-        <div id="username_center"><p>Password: </p></div>
-        <input type="password" name="password" id="password" placeholder="password" autocomplete="current-password"/>
-        <input type="submit" value="Login" class="submit" onclick="formhash(this.form, this.form.password);" />
-      </form>
-      <div id="username_center">
-        <h6><center>Forgot password? click here: <a href='forgotPasswordView.php'><br>forgot password</a></center></h6><br>
-        <h6><center>If you don't have a login, please <a href='registerView.php'>register</a></center></h6>
-
-      </div>
-  </center>
-  </div>
+    <div id="contain">
+        <?php
+        if (isset($_GET['done'])) {
+            echo "<p>password recovery email sent!</p>";
+        } else {
+         ?>
+        <form onsubmit="return false;" >
+            <p>Email: </p>
+            <input type="text" name="email" placeholder="Email" autocomplete="email" id="email"/>
+            <input type="submit" value="Login" class="submit" onclick="recoverPassword();" />
+        </form>
+        <?php } ?>
+    </div>
 
   <div id="footer"><p><center>
     Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
