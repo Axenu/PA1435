@@ -172,7 +172,6 @@ if (isset($_POST['action'])) {
             echo 'errno: %d, error: %s'. $mysqli->errno, $mysqli->error;
         }
         $stmt->close();
-        // header('Location: /createAdministratorView.php');
     }
 }
 
