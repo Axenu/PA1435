@@ -10,25 +10,44 @@ function getSearchView() {
 
 if (isset($_GET['query'])) {
   //display results
-    echo "<!DOCTYPE html>";
-    echo "<html>";
-    echo "<head>";
-    echo "<link rel='stylesheet' href='css/Style.css' type='text/css'/>";
-    echo "<script src='js/jquery.js'></script>";
-    echo "<?php include_once 'searchView.php';";
-    echo "getSeachInclude(); ?>";
-    echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>";
-    echo "<title>Game house Lannister</title>";
-    echo"</head>";
-    echo"<body>";
-    echo"<div id='header'>";
-    echo"<div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
-    echo"<a href='index.php'><div id='logo'></div></a>";
-    echo"<div id='SearchField'><center><?php getSearchView(); ?></center></div>";
-    echo"<div id='BookingField'><a href='bookingView.php'><center>Booking</center></a></div>";
-    echo"</div>";
 
-    echo"<div id='contain'>";
+  include_once 'phpModel/functions.php';
+  sec_session_start();
+  $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
+  ?>
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Style.css" type="text/css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/sha512.js"></script>
+    <?php include_once 'searchView.php';
+    getSeachInclude(); ?>
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="header">
+        <div id="LoginField">
+          <?php
+          if (login_check($mysqli) == true) {
+            ?><a href='userView.php'><?php echo htmlentities($_SESSION['username']); ?></a><a href='phpModel/logout.php'>logg out</a><?php
+          } else {
+            ?><a href="loginView.php"><center>Login</a><?php
+          }
+          ?>
+        </div>
+        <!-- <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div> -->
+        <a href="index.php"><div id="logo"></div></a>
+        <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+        <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
+    </div>
+
+    <div id="contain">
+        <?php
 
     $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
@@ -38,46 +57,69 @@ if (isset($_GET['query'])) {
         $stmt->execute();
         $stmt->bind_result($title, $picture);
         while ($stmt->fetch()) {
-            echo "<div class='gameSmall'>".$picture.", ".$title."</div>";
+            echo "<div onclick='SelectGame(this)' class='gameSmall'><h3>".$title."</h3><img src='".$picture."'></div>";
         }
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
     }
-    echo"<p>Info text</p>";
-    echo"<a href='bookingView.php'>book</a>";
-    echo"</div>";
 
-    echo"<div id='footer'><p><center>";
-    echo"Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>";
-    echo"</div>";
-    echo"</body>";
-    echo"</html>";
+    ?>
+
+    </div>
+
+    <div id="footer"><p><center>
+    Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
+    Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
+    </div>
+    </body>
+    </html>
+    <?php
+
 } else if (isset($_GET['gameS'])) {
   //display game page
-  echo "<!DOCTYPE html>";
-  echo "<html>";
-  echo "<head>";
-  echo "<link rel='stylesheet' href='css/Style.css' type='text/css'/>";
-  echo "<script src='js/jquery.js'></script>";
-  echo "<?php include_once 'searchView.php';";
-  echo "getSeachInclude(); ?>";
-  echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>";
-  echo "<title>Game house</title>";
-  echo"</head>";
-  echo"<body>";
-  echo"<div id='header'>";
-  echo"<div id='LoginField'><a href='LoginView.php'><center>Login</a></center></div>";
-  echo"<a href='index.php'><div id='logo'></div></a>";
-  echo"<div id='SearchField'><center><?php getSearchView(); ?></center></div>";
-  echo"<div id='BookingField'><a href='bookingView.php'><center>Booking</center></a></div>";
-  echo"</div>";
 
-  echo"<div id='contain'>";
+  include_once 'phpModel/functions.php';
+  sec_session_start();
+  $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
+  ?>
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Style.css" type="text/css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/sha512.js"></script>
+    <?php include_once 'searchView.php';
+    getSeachInclude(); ?>
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="header">
+        <div id="LoginField">
+          <?php
+          if (login_check($mysqli) == true) {
+            ?><a href='userView.php'><?php echo htmlentities($_SESSION['username']); ?></a><a href='phpModel/logout.php'>logg out</a><?php
+          } else {
+            ?><a href="loginView.php"><center>Login</a><?php
+          }
+          ?>
+        </div>
+        <!-- <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div> -->
+        <a href="index.php"><div id="logo"></div></a>
+        <div id="SearchField"><center><?php getSearchView(); ?></center></div>
+        <div id="BookingField"><a href="bookingView.php"><center>Booking</center></a></div>
+    </div>
+
+    <div id="contain">
+        <?php
 
   $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 
   if ($stmt = $mysqli->prepare("SELECT title, description, picture, rating FROM games WHERE title LIKE ? LIMIT 5")) {
-      $query = $_GET['game']."%";
+      $query = $_GET['gameS'];
       $stmt->bind_param('s', $query);
       $stmt->execute();
       $stmt->bind_result($title, $desc, $picture, $rating);
@@ -91,16 +133,17 @@ if (isset($_GET['query'])) {
         echo "SELECT title, description, picture, rating FROM games WHERE title LIKE '".$_GET['game']."%' LIMIT 5";
   }
 
-  echo"<div id='gamedescinfo'><p>Info text</p></div>";
-  echo"<a href='bookingView.php'>book</a>";
+  ?>
 
-  echo"</div>";
+  </div>
 
-  echo"<div id='footer'><p><center>";
-  echo"Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>";
-  echo"</div>";
-  echo"</body>";
-  echo"</html>";
+  <div id="footer"><p><center>
+  Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
+  Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
+  </div>
+  </body>
+  </html>
+  <?php
 }
 
 ?>
