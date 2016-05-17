@@ -19,10 +19,10 @@ include_once 'header.php';
 
         <a href='createAdministratorView.php'>Handle Users</a> |
         <a href='generateReport.php'>Get statistics</a> |
-        <a href='sendNewsLetter'>Send Newsletter</a> | 
-</p>
-        <?php } ?>
+        <a href='sendNewsletterView.php'>Send Newsletter</a> |
 
+        <?php } ?>
+</p>
         <p>Active bookings:</p>
 
         <?php
