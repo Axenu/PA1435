@@ -21,7 +21,7 @@ if (isset($_GET['query'])) {
         $stmt->execute();
         $stmt->bind_result($title, $picture);
         while ($stmt->fetch()) {
-            echo "<div onclick='SelectGame(this)' class='gameSmall'><h3>".$title."</h3><img src='".$picture."'>";
+            echo "<div onclick='SelectGame(this)' class='gameSmall'><h3>".$title."</h3><img class='gamepic' src='".$picture."'>";
         }
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
@@ -41,8 +41,8 @@ if (isset($_GET['query'])) {
       $stmt->execute();
       $stmt->bind_result($title, $desc, $picture, $rating);
       while ($stmt->fetch()) {
-          echo "<h1>".$title."</h1>";
-          echo "<img src='".$picture."'>";
+          echo "<h1 class='gametitle'>".$title."</h1>";
+          echo "<img class='gamepic' src='".$picture."'>";
           echo "<div id='gamedesc'><p>".$desc."</p></div>";
           echo "<div id='gamedescrating'><p>Rating: ".$rating."</p></div>";
       }

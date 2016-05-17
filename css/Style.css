@@ -48,40 +48,33 @@ body {
 }
 
 #gamedesc{
-  width: 330px;
+  position: relative;
+  margin:auto;
+  bottom: 120px;
+  width: 630px;
   height: 400px;
-  margin-left: 0px;
   padding: 5px;
   border-color: black;
   border-style: solid;
   border-radius: 1px;
 }
+
 #gamedescrating{
-  width: 330px;
+  width: 100px;
   height: 50px;
   margin-left: 0px;
   padding: 5px;
-  position: absolute;
-  background-color: pink;
-  top: 503px;
-  left: 51%;
+  position: relative;
+  bottom: 680px;
+  left: 70px;;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
 }
-
-#gamedescinfo{
-  width: 330px;
-  height: 300px;
-  margin-left: 0px;
-  padding: 5px;
-  background-color: lightblue;
-  position: absolute;
-  top: 573px;
-  left: 51%;
-}
-
 
 #footer {
   width: 100.4%;
-  height: 40px;
+  height: 21px;
   bottom: 0px;
   margin: auto;
   margin-bottom: 0px;
@@ -92,6 +85,16 @@ body {
   padding-left: 10px;
   left: -10px;
   position: fixed;
+}
+
+img.gamepic{
+  background-size: 100%;
+  width:400px;
+  height:200px;
+  background-color: yellow;
+  position: relative;;
+  left: 262px;
+  bottom: 150px;
 }
 
 p {
@@ -114,6 +117,12 @@ h1{
   font-size: 300%;
   color: white;
   padding-top: 55px;
+}
+
+h1.gametitle{
+  position: relative;
+  bottom: 60px;
+  left: 30px;
 }
 
 h2{
