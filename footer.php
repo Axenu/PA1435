@@ -1,9 +1,10 @@
 
 </div>
 
-<div id="footer"><p><center>
+<div id="footer">
+    <p>
 Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
+Alfons Dahl, Simon Nilsson, Filip Pentikäinen<p>
 </div>
 </body>
 </html>
