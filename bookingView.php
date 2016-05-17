@@ -19,6 +19,7 @@ getSeachInclude(); ?>
 </head>
 <body>
 <div id='header'>
+  <div id="LoginField">
     <?php
     if (login_check($mysqli) == true) {
         ?><p onclick=''><?php echo htmlentities($_SESSION['username']); ?></p><a href='phpModel/logout.php'>logg out</a><?php
@@ -27,7 +28,8 @@ getSeachInclude(); ?>
     }
 
      ?>
-<a href='index.php'><h2><center>Game House</center></h2></a>
+   </div>
+<a href="index.php"><div id="logo"></div></a>
 <div id='SearchField'><center><?php getSearchView(); ?></center></div>
 </div>
 
@@ -320,7 +322,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
  ?>
 
 </div>
-
+</div>
 <div id='footer'><p><center>Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>   Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
 </div>
 </body>

@@ -25,14 +25,15 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
 </head>
 <body>
   <div id="header">
-      <?php
-      if (login_check($mysqli) == true) {
+      <div id="LoginField">
+        <?php
+        if (login_check($mysqli) == true) {
           ?><a href='userView.php'><?php echo htmlentities($_SESSION['username']); ?></a><a href='phpModel/logout.php'>logg out</a><?php
-      } else {
+        } else {
           ?><a href="loginView.php"><center>Login</a><?php
-      }
-
-       ?>
+        }
+        ?>
+      </div>
       <!-- <div id="LoginField"><a href="loginView.php"><center>Login</a></center></div> -->
       <a href="index.php"><div id="logo"></div></a>
       <div id="SearchField"><center><?php getSearchView(); ?></center></div>
@@ -71,7 +72,7 @@ $mysqli = new mysqli('localhost', "loadData", "yrEqRKBGvRHsBZ3P", "game_house");
           echo "<div id='review'>\n";
           echo "<div class='review'>\n";
           echo "<h3 class='reviewTitle'>".$obj->title."</h3>\n";
-          echo "<p class='reviewRating'>".$obj->rating."</p>\n";
+          echo "<p class='reviewRating'> Rating: ".$obj->rating."/5\n";
           echo "<p class='reviewContent'>".$obj->content."</p>\n";
           echo "</div>\n";
           echo "</div>\n";

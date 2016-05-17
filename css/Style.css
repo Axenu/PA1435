@@ -178,6 +178,8 @@ a:hover{
   border-color:black;
   padding-left: 5px;
   margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888;
 }
 
 #registerpersonal{
