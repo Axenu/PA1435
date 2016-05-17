@@ -12,13 +12,7 @@ include_once 'header.php';
             <input type="text" name="email" placeholder="Email" autocomplete="email" id="email"/>
             <input type="submit" value="Login" class="submit" onclick="recoverPassword();" />
         </form>
-        <?php } ?>
-    </div>
-
-  <div id="footer"><p><center>
-    Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-    Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-  </div>
-
-  </body>
-</html>
+        <?php
+    }
+include_once 'footer.php';
+?>

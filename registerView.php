@@ -25,12 +25,6 @@ include_once 'phpModel/registerModel.php';
             <input type="button" value="Register" class="submit" onclick="return regformhash(this.form, this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" />
         </form>
         <p class="return">Return to the <a href="loginView.php">login page</a>.</p>
-      </div>
-      </div>
-
-      <div id="footer"><p><center>
-        Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-        Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-      </div>
-  </body>
-</html>
+        <?php
+        include_once 'footer.php';
+        ?>

@@ -26,18 +26,7 @@ if (isset($_GET['query'])) {
     } else {
           echo "SELECT title, picture FROM games WHERE title LIKE '".$_GET['query']."%' LIMIT 5";
     }
-
-    ?>
-
-    </div>
-
-    <div id="footer"><p><center>
-    Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-    Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-    </div>
-    </body>
-    </html>
-    <?php
+    include_once 'footer.php';
 
 } else if (isset($_GET['gameS'])) {
   //display game page
@@ -60,18 +49,7 @@ if (isset($_GET['query'])) {
   } else {
         echo "SELECT title, description, picture, rating FROM games WHERE title LIKE '".$_GET['game']."%' LIMIT 5";
   }
-
-  ?>
-
-  </div>
-
-  <div id="footer"><p><center>
-  Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-  Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-  </div>
-  </body>
-  </html>
-  <?php
+  include_once 'footer.php';
 }
 
 ?>

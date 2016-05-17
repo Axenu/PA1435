@@ -40,11 +40,6 @@ include_once 'header.php';
         <p onclick='displayEditGameForm();'>Edit Game</p>
 
 
-   </div>
-
-   <div id="footer"><p><center>
-     Blekinge Institute of Technology  <b>|</b>  2016  <b>|</b>  PA1435, Objektorientad Programmering  <b>|</b>
-     Alfons Dahl, Simon Nilsson, Filip Pentikäinen</center><p>
-   </div>
- </body>
- </html>
+        <?php
+        include_once 'footer.php';
+        ?>
