@@ -26,11 +26,11 @@ include_once 'header.php';
         <form action="phpModel/updateUserModel.php" method="post" name="registration_form">
             <p>Username: </p><input type='text' name='username' id='username' placeholder="Username" value="<?php echo htmlentities($_SESSION['username']); ?>"/>
             <?php
-            if ($stmt = $mysqli->prepare("SELECT email, first_name, last_name, address, city, postalcode FROM members WHERE id=?")) {
+            if ($stmt = $mysqli->prepare("SELECT email, first_name, last_name, address, city, postalcode, birthdate FROM members WHERE id=?")) {
                 $stmt->bind_param('i', $_SESSION["user_id"]);
                 $stmt->execute();
                 $stmt->store_result();
-                $stmt->bind_result($email, $first_name, $last_name, $address, $city, $postalcode);
+                $stmt->bind_result($email, $first_name, $last_name, $address, $city, $postalcode, $birth);
                 $stmt->fetch();
             }
              ?>
@@ -47,6 +47,8 @@ include_once 'header.php';
             <input type='text' name='city' placeholder='City' autocomplete='city' id='city' value="<?php echo $city; ?>"/>
             <p>Postal Code: </p>
             <input type='text' name='postnr' placeholder='Postal Code' autocomplete='postnr' id='postnr' value="<?php echo $postalcode; ?>"/>
+            <p>Birth Date: </p>
+            <input type="text" name="birth" placeholder="Birthdate" autocomplete="birth" id="birth"  value="<?php echo $birth; ?>"/>
             <input type='hidden' value='<?php echo htmlentities($_SESSION["user_id"]); ?>' id='u_id' name='u_id'>
             <input type="button" value="Save changes" class="submit" onclick="return updateFormHash(this.form, this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" />
        </form>

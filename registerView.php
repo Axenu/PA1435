@@ -21,6 +21,8 @@ include_once 'phpModel/registerModel.php';
               <input type='text' name='city' placeholder='City' autocomplete='city' id='city'/>
               <p>Postal Code: </p>
               <input type='text' name='postnr' placeholder='Postal Code' autocomplete='postnr' id='postnr'/>
+              <p>Birth Date: </p>
+              <input type="text" name="birth" placeholder="Birthdate" autocomplete="birth" id="birth"/>
              <br>
             <input type="button" value="Register" class="submit" onclick="return regformhash(this.form, this.form.username,this.form.email,this.form.password,this.form.confirmpwd);" />
         </form>

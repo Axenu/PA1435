@@ -52,8 +52,8 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         if (strlen($password == 128)) {
             $ppp = $password;
             $password = hash('sha512', $password . $salt);
-            if ($insert_stmt = $mysqli->prepare("UPDATE members SET username=?, email=?, password=?, first_name=?, last_name=?, address=?, city=?, postalcode=? WHERE id = ? ")) {
-                $insert_stmt->bind_param('sssssssii', $username, $email, $password, $first_name, $last_name, $address, $city, $postnr, $u_id);
+            if ($insert_stmt = $mysqli->prepare("UPDATE members SET username=?, email=?, password=?, first_name=?, last_name=?, address=?, city=?, postalcode=?, birthdate=? WHERE id = ? ")) {
+                $insert_stmt->bind_param('sssssssiii', $username, $email, $password, $first_name, $last_name, $address, $city, $postnr, $_POST['birth'], $u_id);
                 if (! $insert_stmt->execute()) {
                     echo "INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 }
@@ -63,8 +63,8 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
               echo 'errno: %d, error: %s'. $mysqli->errno, $mysqli->error;
             }
         } else {
-            if ($insert_stmt = $mysqli->prepare("UPDATE members SET username=?, email=?, first_name=?, last_name=?, address=?, city=?, postalcode=? WHERE id = ? ")) {
-                $insert_stmt->bind_param('ssssssii', $username, $email, $first_name, $last_name, $address, $city, $postnr, $u_id);
+            if ($insert_stmt = $mysqli->prepare("UPDATE members SET username=?, email=?, first_name=?, last_name=?, address=?, city=?, postalcode=?, birthdate=? WHERE id = ? ")) {
+                $insert_stmt->bind_param('ssssssiii', $username, $email, $first_name, $last_name, $address, $city, $postnr, $_POST['birth'], $u_id);
                 if (! $insert_stmt->execute()) {
                     echo "INSERT INTO members (username, email, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 }

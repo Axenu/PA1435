@@ -115,13 +115,13 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         $ppp = $password;
         $password = hash('sha512', $password . $random_salt);
         // Insert the new user into the database
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
-            $insert_stmt->bind_param('ssssssssi', $username, $email, $password, $random_salt, $first_name, $last_name, $address, $city, $postnr);
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode, birthdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('ssssssssi', $username, $email, $password, $random_salt, $first_name, $last_name, $address, $city, $postnr, $_POST['birth']);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
   //              header('Location: ../error.php?err=Registration failure: INSERT');
   				// header('Location: ./no error');
-                echo "INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                // echo "INSERT INTO members (username, email, password, salt, first_name, last_name, address, city, postalcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             }
             $insert_stmt->close();
         } else {
