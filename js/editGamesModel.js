@@ -37,6 +37,47 @@ function displayEditGameForm() {
     $(".gameForm").append('<input type="button" onclick="cancel()" value="Cancel">');
 }
 
+function displayEditMachineForm() {
+    if (!$('.selectedGame').length) {
+        alert("You have not selected any game");
+        return;
+    }
+    $.ajax({ url: '/phpModel/editGamesModel.php',
+        data: {action: 'selectMachines',
+               game_id: $('.selectedGame').attr('id')},
+        type: 'post',
+        success: function(output) {
+            // console.log(output);
+            $(".outputContainer").html(output);
+            // window.location.href = "/editGamesView.php";
+        }
+    });
+}
+
+function displayAddMachineForm() {
+    if ($("#contain").find(".gameForm").length) {
+        $('.gameForm').remove();
+    }
+	$("#contain").append('<form method="post" class="gameForm" action="phpModel/editGamesModel.php" enctype="multipart/form-data"></form>');
+    $(".gameForm").append('<input autofocus="autofocus" maxlength="100" autocomplete="off" type="text" name="title" id="title" placeholder="Title">');
+    $(".gameForm").append('<input autocomplete="off" type="text" name="description" placeholder="Description" id="description">');
+    $(".gameForm").append('<input autocomplete="off" type="text" name="type" placeholder="Type" id="type">');
+    $(".gameForm").append('<input type="hidden" name="action" id="action" value="addMachine">');
+    $(".gameForm").append('<input type="submit" value="Add">');
+    $(".gameForm").append('<input type="button" onclick="cancel()" value="Cancel">');
+}
+
+function dislayDeleteMachineForm() {
+    $.ajax({ url: '/phpModel/editGamesModel.php',
+        data: {action: 'displayDelete'},
+        type: 'post',
+        success: function(output) {
+            // window.location.href = "/editGamesView.php";
+            $(".outputContainer").html(output);
+        }
+    });
+}
+
 function deleteSelected() {
     if (!$('.selectedGame').length) {
         alert("You have not selected any game");
@@ -76,4 +117,33 @@ function searchQueryChanged(e) {
         // }
             // $('.searchResulContainer').html("");
         // }
+}
+
+function changeValueOf(e) {
+    // console.log($(e).val() + ", " + );
+    $.ajax({ url: '/phpModel/editGamesModel.php',
+        data: {action: 'changeValue',
+               game_id: $('.selectedGame').attr('id'),
+               machine_id: $(e).val(),
+               checked: $(e).prop( "checked" )},
+        type: 'post',
+        success: function(output) {
+            // console.log(output);
+            // $(".outputContainer").html(output);
+            // window.location.href = "/editGamesView.php";
+        }
+    });
+}
+
+function deleteMachine(e) {
+    if (confirm("Are you sure you want to delete "+$(e).text())) {
+        $.ajax({ url: '/phpModel/editGamesModel.php',
+            data: {action: 'deleteMachine',
+                   machine_id: $(e).attr('id')},
+            type: 'post',
+            success: function(output) {
+                window.location.href = "/editGamesView.php";
+            }
+        });
+    }
 }

@@ -21,7 +21,7 @@ include_once 'header.php';
         ?>
 
         <a href='createAdministratorView.php'>Handle Users</a> |
-        <a href='generateReport.php'>Get statistics</a> |
+        <a href='getStatisticsView.php'>Get statistics</a> |
         <a href='sendNewsletterView.php'>Send Newsletter</a>
 
         <?php } ?>
@@ -62,6 +62,6 @@ include_once 'header.php';
         </div>
 
 
-        <?php
-        include_once 'footer.php';
-        ?>
+<?php
+include_once 'footer.php';
+?>
