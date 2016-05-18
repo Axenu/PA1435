@@ -38,5 +38,21 @@ include_once 'header.php';
       } else {
         echo "SELECT * FROM `reviews_house` LIMIT 5";
       }
+      ?>
+      <div id="WriteReview">
+      <form action="phpModel/writeReview.php" method="post" name="login_form">
+
+        <h3>Write Review</h3>
+             <p>Title: </p>
+            <input type="text" name="title" placeholder="Title" autocomplete="title" id="title"/>
+            <p>Content: </p>
+            <textarea type="text" rows="5" name="content" id="content" placeholder="Content" autocomplete="content"></textarea>
+                    <p>Rating (0-5): </p>
+             <input type="text" name="rating" id="rating" placeholder="Rating" autocomplete="rating"/>
+             <input type='hidden' name='type' value='game_house'/>
+             <input type="submit" value="Submit" class="submit"/>
+         </form>
+       </div>
+       <?php
 include_once 'footer.php';
 ?>

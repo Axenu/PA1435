@@ -82,7 +82,7 @@ if (isset($_GET['query'])) {
          <input type='hidden' name='user_id' value='
          <?php if (login_check($mysqli) == true) { echo $_SESSION['user_id']; } else {echo '-1';}?>
          '/>
-         <input type="submit" value="Login" class="submit"/>
+         <input type="submit" value="Submit" class="submit"/>
      </form>
    </div>
      <?php
