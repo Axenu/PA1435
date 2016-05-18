@@ -188,10 +188,6 @@ p.userclass:hover{
   background-color: gray;
 }
 
-form.form1{
-  color: black;
-}
-
 div.gameSmall{
   padding: 5px;
   margin: 5px;
@@ -233,6 +229,8 @@ p.selectedUser{
   margin:auto;
   cursor: pointer;
 }
+
+g.stand
 
 #options{
   text-align: center;
@@ -346,13 +344,11 @@ a:hover{
 #WriteReview{
   padding-bottom: 20px;
   padding-left: 20px;
-  width: 500px;
-  position: relative;
-  bottom: 120px;
   border-width: 3px;
   border-style: solid;
   border-color:black;
   border-radius: 25px;
+  width: 500px;
 }
 
 #content{
@@ -457,7 +453,7 @@ div.day {
     color: white;
 }
 
-div.day.hover{
+div.day:hover{
     width: 561px;
     height: 349px;
     position: absolute;
