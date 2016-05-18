@@ -71,7 +71,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
     $stmt->bind_result($id, $day, $price, $hour);
     $d = 1;
     echo "<div id='Calendar'>";
-    echo "<div class='day'><p>1</p>";
+    echo "<div class='day' onclick='selectDate(this);'><p>1</p>";
     while ($stmt->fetch()) {
         if ($d == $day) {
             if ($price != -1) {
@@ -80,7 +80,7 @@ if (!isset($_GET['game']) && !isset($_GET['date']) && !isset($_GET['confirm'])) 
         } else {
             $d = $day;
             echo "</div>";
-            echo "<div class='day'><p>".$day."</p>";
+            echo "<div class='day' onclick='selectDate(this);'><p>".$day."</p>";
             if ($price != -1) {
                 echo "<p onclick='checkAvailability(this)' id='".$id."'>time: ".$hour." price: ".$price."</p>";
             }

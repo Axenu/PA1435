@@ -457,7 +457,7 @@ div.day {
     color: white;
 }
 
-div.day:hover{
+div.day.hover{
     width: 561px;
     height: 349px;
     position: absolute;

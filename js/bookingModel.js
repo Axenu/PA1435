@@ -52,3 +52,12 @@ function removeBooking(b_id) {
     	});
     }
 }
+
+function selectDate(date) {
+    $('.day').find('.hover').removeClass('hover');
+    if (!$(date).hasClass('hover')) {
+        $(date).addClass('hover');
+    } else {
+        $(date).removeClass('hover');
+    }
+}
